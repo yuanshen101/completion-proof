@@ -1,0 +1,65 @@
+{
+  "links": [
+    {
+      "ok": true,
+      "status": 200,
+      "target": "completion-proof/site/style.css"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "completion-proof/README.md"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "docs/acceptance.md"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "completion-proof/site/assets/charts/wall.svg"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "completion-proof/site/assets/charts/memory.svg"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "completion-proof/site/assets/charts/rss.svg"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "evidence/demo/completion-proof-demo.mp4"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "evidence/benchmark/raw.json"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "evidence/benchmark/raw.csv"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "evidence/benchmark/resource-report.md"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "completion-proof/site/assets/data.js"
+    },
+    {
+      "ok": true,
+      "status": 200,
+      "target": "completion-proof/site/app.js"
+    }
+  ],
+  "ok": true
+}

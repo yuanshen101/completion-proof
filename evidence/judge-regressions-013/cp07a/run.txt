@@ -1,0 +1,14 @@
+old: returncode=1 timed_out=True elapsed=8.172s
+new: returncode=0 timed_out=False elapsed=0.232s
+{
+  "expectation": "old fails or times out; new passes",
+  "new_passed": true,
+  "new_tests": 2,
+  "new_timed_out": false,
+  "old_failed": true,
+  "old_ref": "a79577d",
+  "old_tests": 2,
+  "old_timed_out": true,
+  "schema": "completion-proof-judge-regressions-v1",
+  "scope": "CP01-CP08 synthetic fixtures only; no secrets or external services"
+}

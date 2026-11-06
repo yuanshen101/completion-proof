@@ -1,0 +1,7 @@
+{
+  "path": "completion-proof-demo.mp4",
+  "duration_s": 23.0,
+  "codec": "h264",
+  "width": 1280,
+  "height": 720
+}

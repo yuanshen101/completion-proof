@@ -1,0 +1,75 @@
+test_artifact_produced_by_check_is_hashed (tests.test_engine.EngineTests.test_artifact_produced_by_check_is_hashed) ... ok
+test_cannot_escape_with_dotdot_glob (tests.test_engine.EngineTests.test_cannot_escape_with_dotdot_glob) ... ok
+test_concurrent_store_writes (tests.test_engine.EngineTests.test_concurrent_store_writes) ... ok
+test_duplicate_receipt_is_annotated_but_never_hides_latest (tests.test_engine.EngineTests.test_duplicate_receipt_is_annotated_but_never_hides_latest) ... ok
+test_empty_scope_is_unknown (tests.test_engine.EngineTests.test_empty_scope_is_unknown) ... ok
+test_false_pass_from_text_is_fail (tests.test_engine.EngineTests.test_false_pass_from_text_is_fail) ... ok
+test_file_changed_during_hash_is_unknown (tests.test_engine.EngineTests.test_file_changed_during_hash_is_unknown) ... ok
+test_large_output_hash_covers_the_whole_stream (tests.test_engine.EngineTests.test_large_output_hash_covers_the_whole_stream) ... ok
+test_missing_artifact_is_unknown (tests.test_engine.EngineTests.test_missing_artifact_is_unknown) ... ok
+test_no_checks_never_nudges (tests.test_engine.EngineTests.test_no_checks_never_nudges) ... ok
+test_output_redaction_and_cap (tests.test_engine.EngineTests.test_output_redaction_and_cap) ... ok
+test_parent_exit_with_child_holding_pipe_is_bounded_and_unknown (tests.test_engine.EngineTests.test_parent_exit_with_child_holding_pipe_is_bounded_and_unknown) ... ok
+test_pass_records_scope_and_receipt (tests.test_engine.EngineTests.test_pass_records_scope_and_receipt) ... ok
+test_pre_verify_bounded_and_relevant (tests.test_engine.EngineTests.test_pre_verify_bounded_and_relevant) ... ok
+test_pre_verify_nudges_after_fail (tests.test_engine.EngineTests.test_pre_verify_nudges_after_fail) ... ok
+test_pre_verify_silent_after_fresh_pass (tests.test_engine.EngineTests.test_pre_verify_silent_after_fresh_pass) ... ok
+test_redacts_json_and_quoted_secret_shapes (tests.test_engine.EngineTests.test_redacts_json_and_quoted_secret_shapes) ... ok
+test_report_contains_limits (tests.test_engine.EngineTests.test_report_contains_limits) ... ok
+test_source_change_during_check_is_unknown (tests.test_engine.EngineTests.test_source_change_during_check_is_unknown) ... ok
+test_stale_after_check_config_change (tests.test_engine.EngineTests.test_stale_after_check_config_change) ... ok
+test_stale_after_source_edit (tests.test_engine.EngineTests.test_stale_after_source_edit) ... ok
+test_stale_after_test_edit (tests.test_engine.EngineTests.test_stale_after_test_edit) ... ok
+test_store_corrupt_database_is_reported (tests.test_engine.EngineTests.test_store_corrupt_database_is_reported) ... ok
+test_store_output_false_keeps_hashes_only (tests.test_engine.EngineTests.test_store_output_false_keeps_hashes_only) ... ok
+test_store_retention (tests.test_engine.EngineTests.test_store_retention) ... ok
+test_symlink_escape_is_unknown (tests.test_engine.EngineTests.test_symlink_escape_is_unknown) ... ok
+test_timeout_is_unknown_and_child_killed (tests.test_engine.EngineTests.test_timeout_is_unknown_and_child_killed) ... ok
+test_workspace_isolation (tests.test_engine.EngineTests.test_workspace_isolation) ... ok
+test_config_rejects_unsafe_shapes (tests.test_engine.FingerprintAndConfigTests.test_config_rejects_unsafe_shapes) ... ok
+test_config_tolerates_unknown_key (tests.test_engine.FingerprintAndConfigTests.test_config_tolerates_unknown_key) ... ok
+test_glob_match (tests.test_engine.FingerprintAndConfigTests.test_glob_match) ... ok
+test_relative_workspace_setting_is_resolved_once (tests.test_engine.FingerprintAndConfigTests.test_relative_workspace_setting_is_resolved_once) ... ok
+test_config_error_degrades_without_crashing (tests.test_runtime.RuntimeTests.test_config_error_degrades_without_crashing) ... Completion Proof disabled: invalid configuration: checks[0].argv must be a list of strings; a single string would imply shell parsing
+ok
+test_cp07_observation_hook_does_not_wait_on_sqlite_lock (tests.test_runtime.RuntimeTests.test_cp07_observation_hook_does_not_wait_on_sqlite_lock) ... ok
+test_disabled_check_cannot_execute_via_tool_or_cli (tests.test_runtime.RuntimeTests.test_disabled_check_cannot_execute_via_tool_or_cli) ... ok
+test_hook_bounded (tests.test_runtime.RuntimeTests.test_hook_bounded) ... ok
+test_init_write_uses_fixed_template (tests.test_runtime.RuntimeTests.test_init_write_uses_fixed_template) ... ok
+test_observation_cannot_create_evidence (tests.test_runtime.RuntimeTests.test_observation_cannot_create_evidence) ... ok
+test_observation_is_untrusted_context (tests.test_runtime.RuntimeTests.test_observation_is_untrusted_context) ... ok
+test_registers_tools_hooks_cli_and_slash (tests.test_runtime.RuntimeTests.test_registers_tools_hooks_cli_and_slash) ... ok
+test_slash_and_cli (tests.test_runtime.RuntimeTests.test_slash_and_cli) ... ok
+test_tool_list_status_verify_report (tests.test_runtime.RuntimeTests.test_tool_list_status_verify_report) ... ok
+test_tool_rejects_unknown_check_and_ignores_command_inputs (tests.test_runtime.RuntimeTests.test_tool_rejects_unknown_check_and_ignores_command_inputs) ... ok
+test_cp01_child_environment_is_minimal_allowlist (tests.test_judge_regressions.JudgeRegressionTests.test_cp01_child_environment_is_minimal_allowlist) ... ok
+test_cp01_filtered_environment_function_is_allowlist (tests.test_judge_regressions.JudgeRegressionTests.test_cp01_filtered_environment_function_is_allowlist) ... ok
+test_cp02_latest_execution_status_survives_dedupe (tests.test_judge_regressions.JudgeRegressionTests.test_cp02_latest_execution_status_survives_dedupe) ... ok
+test_cp02_pass_fail_pass_latest_is_pass (tests.test_judge_regressions.JudgeRegressionTests.test_cp02_pass_fail_pass_latest_is_pass) ... ok
+test_cp03_escaped_child_keeps_engine_return_bounded (tests.test_judge_regressions.JudgeRegressionTests.test_cp03_escaped_child_keeps_engine_return_bounded) ... ok
+test_cp04_disabled_check_cannot_execute (tests.test_judge_regressions.JudgeRegressionTests.test_cp04_disabled_check_cannot_execute) ... ok
+test_cp05_shared_ledger_is_workspace_scoped (tests.test_judge_regressions.JudgeRegressionTests.test_cp05_shared_ledger_is_workspace_scoped) ... ok
+test_cp06_secure_hash_refuses_swapped_parent (tests.test_judge_regressions.JudgeRegressionTests.test_cp06_secure_hash_refuses_swapped_parent) ... ok
+test_cp06_sensitive_path_is_refused (tests.test_judge_regressions.JudgeRegressionTests.test_cp06_sensitive_path_is_refused) ... ok
+test_cp06r_actual_verify_does_not_pass_outside_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_actual_verify_does_not_pass_outside_root) ... ok
+test_cp06r_direct_hash_refuses_swapped_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_direct_hash_refuses_swapped_root) ... ok
+test_cp06r_root_replacement_after_selection_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_root_replacement_after_selection_is_unknown) ... ok
+test_cp07_gate_deadline_returns_bounded_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_gate_deadline_returns_bounded_unknown) ... ok
+test_cp07_post_tool_call_does_not_wait_on_sqlite_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_post_tool_call_does_not_wait_on_sqlite_lock) ... ok
+test_cp07_sparse_large_file_is_bounded_before_read (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_sparse_large_file_is_bounded_before_read) ... ok
+test_cp07a_fifo_after_selection_does_not_block (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_fifo_after_selection_does_not_block) ... ok
+test_cp07a_pre_verify_with_injected_fifo_returns_promptly (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_pre_verify_with_injected_fifo_returns_promptly) ... ok
+test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock) ... ok
+test_cp08_missing_declared_source_file_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_missing_declared_source_file_is_unknown) ... ok
+test_cp08_missing_declared_test_scope_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_missing_declared_test_scope_is_unknown) ... ok
+test_cp08_optional_scope_is_explicit (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_optional_scope_is_explicit) ... ok
+test_cp08_source_only_scope_is_legitimate (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_source_only_scope_is_legitimate) ... ok
+test_caller_owned_handle_stays_open_until_owner_closes (tests.test_resource_lifetime.ResourceLifetimeTests.test_caller_owned_handle_stays_open_until_owner_closes) ... ok
+test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers) ... ok
+test_owned_handle_closes_on_deadline_and_repeated_selection_errors (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_deadline_and_repeated_selection_errors) ... ok
+test_owned_handle_closes_on_fifo_hash_errors (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_fifo_hash_errors) ... ok
+
+----------------------------------------------------------------------
+Ran 69 tests in 11.198s
+
+OK

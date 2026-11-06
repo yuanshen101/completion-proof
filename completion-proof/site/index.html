@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Completion Proof — evidence receipts for coding agents</title>
+  <meta name="description" content="A local-first Hermes plugin that turns a configured check run into a PASS/FAIL/UNKNOWN receipt tied to the actual source, test and artifact fingerprints." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <span class="brand">Completion Proof</span>
+      <span class="nav-links">
+        <a href="#how">How it works</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#limits">Limits</a>
+        <a href="../README.md">README</a>
+      </span>
+    </nav>
+    <div class="hero-copy">
+      <p class="eyebrow">Native Hermes plugin · local-first · deterministic</p>
+      <h1>“Tests pass” is a claim.<br />A receipt is evidence.</h1>
+      <p class="lede">
+        Completion Proof runs <strong>checks you configured</strong>, hashes the source,
+        test and artifact scope you declared, and records PASS / FAIL / UNKNOWN receipts.
+        Change a relevant file and the old PASS becomes <strong>STALE</strong>.
+      </p>
+      <p class="hero-actions">
+        <a class="button" href="#quickstart">Quickstart</a>
+        <a class="button secondary" href="../../docs/acceptance.md">Acceptance evidence</a>
+      </p>
+      <p class="small">
+        No network by default · no LLM in the check path · the model cannot pass a command
+        or a working directory to a check.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section id="how">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li>
+          <h3>You declare the checks</h3>
+          <p>
+            A check is an argv vector, a timeout, and source/test/artifact globs in
+            <code>config.yaml</code>. It is operator configuration, not a model tool input.
+          </p>
+        </li>
+        <li>
+          <h3>The engine runs and hashes</h3>
+          <p>
+            The command runs with <code>shell=False</code>, a filtered environment, a bounded
+            timeout and a killed process group. The declared files are hashed before and after.
+          </p>
+        </li>
+        <li>
+          <h3>The receipt is tied to a revision</h3>
+          <p>
+            The receipt stores the command vector, exit code, timeout flag, duration, output
+            hashes, every scoped file hash, and a scope summary. A PASS is only fresh while
+            those hashes still match.
+          </p>
+        </li>
+        <li>
+          <h3>The coding turn gets one honest nudge</h3>
+          <p>
+            When a coding turn edited covered files without fresh evidence, the native
+            <code>pre_verify</code> hook asks once for verification. It is one-shot and bounded;
+            it does not lock every answer or overwrite the final response.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="evidence">
+      <h2>Measured evidence</h2>
+      <p class="note">
+        These charts are generated from the committed raw benchmark file by
+        <code>scripts/render_site.py</code>. They are deterministic-engine measurements,
+        not full Hermes agent runs. RSS is actual resident memory sampled from the process
+        tree; tracemalloc is a separate Python-allocation measure. No positive percentage is
+        hardcoded.
+      </p>
+      <div class="grid">
+        <figure>
+          <img src="assets/charts/wall.svg" alt="Wall-clock p50 and p95 by condition" />
+          <figcaption>Wall-clock p50 / p95 per operation (ms).</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/charts/memory.svg" alt="Python allocation peak by condition" />
+          <figcaption>Python allocation peak (KiB, tracemalloc; not process RSS).</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/charts/rss.svg" alt="Process-tree RSS peak by condition" />
+          <figcaption>Process-tree RSS peak (KiB, psutil sampling; includes engine-local child processes).</figcaption>
+        </figure>
+      </div>
+      <div id="stats" class="stats"></div>
+      <p class="small">
+        Demo: <a href="../../evidence/demo/completion-proof-demo.mp4">real CLI replay MP4</a> (labelled replay, not live).
+        Raw data: <a href="../../evidence/benchmark/raw.json">raw.json</a> ·
+        <a href="../../evidence/benchmark/raw.csv">raw.csv</a> ·
+        <a href="../../evidence/benchmark/resource-report.md">resource report</a>.
+        Environment, commit, command and caveats are in the raw JSON. RSS and parent/child CPU
+        are actual local counters; the full-agent token cost is not measured and is not claimed
+        to be zero.
+      </p>
+    </section>
+
+    <section id="quickstart">
+      <h2>Quickstart</h2>
+      <pre><code># 1. Install the plugin directory (or extract the release archive) into
+#    $HERMES_HOME/plugins/completion-proof, then:
+hermes plugins enable completion-proof
+
+# 2. Generate a starter check to review in config.yaml
+hermes completion-proof init
+
+# 3. Run it and inspect the receipt
+hermes completion-proof verify
+hermes completion-proof status
+
+# 4. After editing a covered file, the old PASS is STALE
+hermes completion-proof status</code></pre>
+      <p class="small">
+        The plugin tool is named <code>proof_verify</code>. Hermes may defer plugin tools;
+        then use <code>tool_call</code> or the CLI above. The slash command is
+        <code>/proof verify</code>.
+      </p>
+    </section>
+
+    <section id="why">
+      <h2>Why this is different</h2>
+      <div class="cards">
+        <article>
+          <h3>Revision-bound receipts</h3>
+          <p>
+            Not a command history. A PASS is invalidated by a change to any declared
+            source, test, artifact or check definition.
+          </p>
+        </article>
+        <article>
+          <h3>Trusted configuration</h3>
+          <p>
+            The model can select a configured check id; it cannot supply argv, cwd, env or
+            globs. Shell execution is never enabled.
+          </p>
+        </article>
+        <article>
+          <h3>Honest states</h3>
+          <p>
+            Timeout, missing artifact, path escape, changed-during-hash and no-receipt all
+            surface as UNKNOWN. An old pass after an edit surfaces as STALE, never PASS.
+          </p>
+        </article>
+        <article>
+          <h3>Local by default</h3>
+          <p>
+            SQLite under the profile's plugin-data directory. No telemetry, no network
+            calls in the engine, no credential reads.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="limits">
+      <h2>Explicit limitations</h2>
+      <ul class="limits">
+        <li>A PASS proves the configured command exited 0 on the declared scope — not that all software is correct.</li>
+        <li>Evidence is local and not cryptographically tamper-proof: a process with the same OS permissions can edit the ledger.</li>
+        <li><code>pre_verify</code> fires only on coding turns that edited files, and the nudge is bounded. It is not a fail-closed lock on every answer.</li>
+        <li>Hermes defers plugin tools by default; call <code>tool_call</code> or use the CLI if <code>proof_verify</code> is not in the immediate tool list.</li>
+        <li>Windows-native compatibility: <strong>UNTESTED</strong> in this environment (Linux). Do not read WSL results as Windows validation.</li>
+        <li>This offline kit is not a submitted entry. The local demo MP4, plugin archive and evidence are included; the public repository, catalog PR, X post and Typeform submission are separate human-authorized steps.</li>
+      </ul>
+    </section>
+
+    <section id="fr">
+      <h2>En bref (français)</h2>
+      <p>
+        Completion Proof transforme une exécution de contrôles configurés en reçus
+        PASS/FAIL/UNKNOWN liés aux empreintes SHA-256 des fichiers réellement concernés.
+        Toute modification pertinente rend l’ancien PASS <strong>STALE</strong>. Local,
+        déterministe, sans réseau ni LLM dans le moteur de vérification.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Completion Proof · MIT for newly authored code · built as an offline candidate for the
+      Nous Research Plugin Hackathon. The technical kit is complete; publication/submission was not executed in this run.
+    </p>
+  </footer>
+  <script src="assets/data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

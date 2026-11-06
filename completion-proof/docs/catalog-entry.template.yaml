@@ -1,0 +1,29 @@
+name: completion-proof
+repo: <PUBLIC_REPOSITORY_URL_UNRESOLVED>
+sha: <FULL_40_CHARACTER_COMMIT_SHA_UNRESOLVED>
+subdir: completion-proof
+description: Evidence receipts for coding completion, bound to the current source/test/artifact fingerprints and invalidated when they change.
+maintainer: yuanshen101
+tier: community
+category: tools
+requires_hermes: ">=0.22.7"
+docs_url: <PUBLIC_README_URL_AT_PINNED_SHA_UNRESOLVED>
+version: "0.1.4"
+platforms: [linux]
+capabilities:
+  provides_tools:
+    - proof_list_checks
+    - proof_status
+    - proof_verify
+    - proof_report
+  provides_hooks:
+    - post_tool_call
+    - pre_verify
+  provides_middleware: []
+  requires_env: []
+disclosure:
+  - "Configured checks execute automatically without a per-run model prompt, with the user's OS privileges. They are not sandboxed and may use the network, read files, spawn descendants or consume CPU/memory/disk."
+  - "The plugin engine makes no network or model calls of its own; a nudge can still add full-agent turns, so zero engine model calls is not zero token cost."
+  - "The plugin reads only declared workspace scopes (credential-shaped paths are refused), stores SQLite receipt fields and bounded redacted excerpts under plugin data, and supports retention/GC; it has no telemetry, daemon or updater."
+  - "init --write is the only explicit profile write path; checks have a 1-600 second timeout and deliberately escaped descendants are not guaranteed to be killed."
+  - "Local evidence is not cryptographic attestation or a correctness proof."

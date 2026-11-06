@@ -1,0 +1,111 @@
+{
+  "actual_execution_elapsed_s": 5.5,
+  "commands": [
+    {
+      "caption": "Configured checks are operator settings: argv, cwd, timeout and declared globs.",
+      "command": "hermes completion-proof checks",
+      "elapsed_s": 1.127,
+      "excerpt": false,
+      "output": [
+        "unit  enabled",
+        "  command: python3 -m unittest discover -s tests -v",
+        "  cwd: .  timeout: 30s",
+        "  source: ['src/**/*.py']",
+        "  tests:  ['tests/**/*.py']",
+        "  artifacts: []"
+      ],
+      "returncode": 0
+    },
+    {
+      "caption": "The check fails, so the receipt is FAIL. The command output is not independent evidence.",
+      "command": "hermes completion-proof verify",
+      "elapsed_s": 1.113,
+      "excerpt": false,
+      "output": [
+        "Summary: FAIL",
+        "  unit: FAIL (exit=1, 45 ms) \u2014 command exited 1",
+        "",
+        "PASS proves only that the configured command exited 0 on the declared scope."
+      ],
+      "returncode": 1
+    },
+    {
+      "caption": "Fix the source, then run the configured check again.",
+      "command": "sed -i 's/VALUE = 1/VALUE = 2/' src/app.py",
+      "elapsed_s": 0.011,
+      "excerpt": false,
+      "output": [],
+      "returncode": 0
+    },
+    {
+      "caption": "The receipt is PASS. It proves only that this command exited 0 on the declared scope.",
+      "command": "hermes completion-proof verify",
+      "elapsed_s": 1.126,
+      "excerpt": false,
+      "output": [
+        "Summary: PASS",
+        "  unit: PASS (exit=0, 44 ms)",
+        "",
+        "PASS proves only that the configured command exited 0 on the declared scope."
+      ],
+      "returncode": 0
+    },
+    {
+      "caption": "Freshness is computed from the current fingerprint, not from the receipt timestamp.",
+      "command": "hermes completion-proof status",
+      "elapsed_s": 1.07,
+      "excerpt": true,
+      "output": [
+        "# Completion Proof report",
+        "",
+        "Engine 0.1.4 \u00b7 schema 2",
+        "",
+        "| Check | Status | Exit | Duration | Verified (UTC) | Command | Scope |",
+        "|---|---|---|---|---|---|---|",
+        "| unit | PASS | 0 | 44 ms | 2026-11-06T14:13:36.198Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |",
+        "",
+        "## What PASS proves",
+        ""
+      ],
+      "returncode": 0
+    },
+    {
+      "caption": "Change one covered source file. The historical PASS is retained but no longer current.",
+      "command": "sed -i 's/VALUE = 2/VALUE = 3/' src/app.py",
+      "elapsed_s": 0.011,
+      "excerpt": false,
+      "output": [],
+      "returncode": 0
+    },
+    {
+      "caption": "The status is STALE: the old receipt is not proof for this revision.",
+      "command": "hermes completion-proof status",
+      "elapsed_s": 1.038,
+      "excerpt": true,
+      "output": [
+        "# Completion Proof report",
+        "",
+        "Engine 0.1.4 \u00b7 schema 2",
+        "",
+        "| Check | Status | Exit | Duration | Verified (UTC) | Command | Scope |",
+        "|---|---|---|---|---|---|---|",
+        "| unit | STALE | 0 | 44 ms | 2026-11-06T14:13:36.198Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |",
+        "|  | \u21b3 relevant source, test, artifact or check configuration changed since this receipt |  |  |  |  |  |",
+        "",
+        "## What PASS proves"
+      ],
+      "returncode": 0
+    }
+  ],
+  "live": false,
+  "replay": true,
+  "schema": "completion-proof-demo-v1",
+  "video": {
+    "codec": "h264",
+    "duration_s": 23.0,
+    "height": 720,
+    "path": "completion-proof-demo.mp4",
+    "width": 1280
+  },
+  "video_timing": "fixed replay timing; not live, no speed claim"
+}

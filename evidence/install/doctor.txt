@@ -1,0 +1,6 @@
+Plugin Doctor: 
+<REPO_ROOT>/.scratch<TMP>
+etion-proof-tests-pmja3k7o/tmp9rc26kco<HOME_PATH>
+  manifest: completion-proof 0.1.4 (standalone)
+  OK: runtime discovery, manifest parsing, import, and registration passed
+  registrations: 4 tool(s), 2 hook(s)

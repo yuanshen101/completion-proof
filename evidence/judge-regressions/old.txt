@@ -1,0 +1,201 @@
+
+test_cp01_child_environment_is_minimal_allowlist (tests.test_judge_regressions.JudgeRegressionTests.test_cp01_child_environment_is_minimal_allowlist) ... FAIL
+test_cp01_filtered_environment_function_is_allowlist (tests.test_judge_regressions.JudgeRegressionTests.test_cp01_filtered_environment_function_is_allowlist) ... FAIL
+test_cp02_latest_execution_status_survives_dedupe (tests.test_judge_regressions.JudgeRegressionTests.test_cp02_latest_execution_status_survives_dedupe) ... FAIL
+test_cp02_pass_fail_pass_latest_is_pass (tests.test_judge_regressions.JudgeRegressionTests.test_cp02_pass_fail_pass_latest_is_pass) ... FAIL
+test_cp03_escaped_child_keeps_engine_return_bounded (tests.test_judge_regressions.JudgeRegressionTests.test_cp03_escaped_child_keeps_engine_return_bounded) ... FAIL
+test_cp04_disabled_check_cannot_execute (tests.test_judge_regressions.JudgeRegressionTests.test_cp04_disabled_check_cannot_execute) ... FAIL
+test_cp05_shared_ledger_is_workspace_scoped (tests.test_judge_regressions.JudgeRegressionTests.test_cp05_shared_ledger_is_workspace_scoped) ... FAIL
+test_cp06_secure_hash_refuses_swapped_parent (tests.test_judge_regressions.JudgeRegressionTests.test_cp06_secure_hash_refuses_swapped_parent) ... FAIL
+test_cp06_sensitive_path_is_refused (tests.test_judge_regressions.JudgeRegressionTests.test_cp06_sensitive_path_is_refused) ... FAIL
+test_cp06r_actual_verify_does_not_pass_outside_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_actual_verify_does_not_pass_outside_root) ... ERROR
+test_cp06r_direct_hash_refuses_swapped_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_direct_hash_refuses_swapped_root) ... ERROR
+test_cp06r_root_replacement_after_selection_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_root_replacement_after_selection_is_unknown) ... FAIL
+test_cp07_gate_deadline_returns_bounded_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_gate_deadline_returns_bounded_unknown) ... ok
+test_cp07_post_tool_call_does_not_wait_on_sqlite_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_post_tool_call_does_not_wait_on_sqlite_lock) ... ERROR
+test_cp07_sparse_large_file_is_bounded_before_read (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_sparse_large_file_is_bounded_before_read) ... FAIL
+test_cp07a_fifo_after_selection_does_not_block (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_fifo_after_selection_does_not_block) ... ERROR
+test_cp07a_pre_verify_with_injected_fifo_returns_promptly (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_pre_verify_with_injected_fifo_returns_promptly) ... ok
+test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock) ... ERROR
+test_cp08_missing_declared_source_file_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_missing_declared_source_file_is_unknown) ... ok
+test_cp08_missing_declared_test_scope_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_missing_declared_test_scope_is_unknown) ... FAIL
+test_cp08_optional_scope_is_explicit (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_optional_scope_is_explicit) ... ok
+test_cp08_source_only_scope_is_legitimate (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_source_only_scope_is_legitimate) ... ok
+
+======================================================================
+ERROR: test_cp06r_actual_verify_does_not_pass_outside_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_actual_verify_does_not_pass_outside_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 238, in test_cp06r_actual_verify_does_not_pass_outside_root
+    ), mock.patch(
+       ~~~~~~~~~~^
+        "completion_proof.fingerprint.secure_hash_file", side_effect=guarded
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ):
+    ^
+  File "<HOME>/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/unittest/mock.py", line 1510, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "<HOME>/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/unittest/mock.py", line 1480, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: <module 'completion_proof.fingerprint' from '<REPO_ROOT>/.scratch<TMP>'> does not have the attribute 'secure_hash_file'
+
+======================================================================
+ERROR: test_cp06r_direct_hash_refuses_swapped_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_direct_hash_refuses_swapped_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 266, in test_cp06r_direct_hash_refuses_swapped_root
+    secure_hash_file(self.fx.root, relative)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not callable
+
+======================================================================
+ERROR: test_cp07_post_tool_call_does_not_wait_on_sqlite_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_post_tool_call_does_not_wait_on_sqlite_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 397, in test_cp07_post_tool_call_does_not_wait_on_sqlite_lock
+    self.addCleanup(runtime.close)
+                    ^^^^^^^^^^^^^
+AttributeError: 'Runtime' object has no attribute 'close'
+
+======================================================================
+ERROR: test_cp07a_fifo_after_selection_does_not_block (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_fifo_after_selection_does_not_block)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 323, in test_cp07a_fifo_after_selection_does_not_block
+    secure_hash_file(self.fx.root, relative)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'NoneType' object is not callable
+
+======================================================================
+ERROR: test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 467, in test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock
+    runtime.close()
+    ^^^^^^^^^^^^^
+AttributeError: 'Runtime' object has no attribute 'close'
+
+======================================================================
+FAIL: test_cp01_child_environment_is_minimal_allowlist (tests.test_judge_regressions.JudgeRegressionTests.test_cp01_child_environment_is_minimal_allowlist)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 73, in test_cp01_child_environment_is_minimal_allowlist
+    self.assertIsNone(child.get(key), f"forbidden env {key} leaked to child")
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'postgres://synthetic' is not None : forbidden env DATABASE_URL leaked to child
+
+======================================================================
+FAIL: test_cp01_filtered_environment_function_is_allowlist (tests.test_judge_regressions.JudgeRegressionTests.test_cp01_filtered_environment_function_is_allowlist)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 91, in test_cp01_filtered_environment_function_is_allowlist
+    self.assertFalse(key in env, f"forbidden env {key} leaked")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false : forbidden env DATABASE_URL leaked
+
+======================================================================
+FAIL: test_cp02_latest_execution_status_survives_dedupe (tests.test_judge_regressions.JudgeRegressionTests.test_cp02_latest_execution_status_survives_dedupe)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 104, in test_cp02_latest_execution_status_survives_dedupe
+    self.assertEqual(state["status"], "FAIL")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PASS' != 'FAIL'
+- PASS
++ FAIL
+
+
+======================================================================
+FAIL: test_cp02_pass_fail_pass_latest_is_pass (tests.test_judge_regressions.JudgeRegressionTests.test_cp02_pass_fail_pass_latest_is_pass)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 118, in test_cp02_pass_fail_pass_latest_is_pass
+    self.assertEqual(engine.status()["checks"][0]["status"], "PASS")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'FAIL' != 'PASS'
+- FAIL
++ PASS=<REDACTED>
+FAIL: test_cp03_escaped_child_keeps_engine_return_bounded (tests.test_judge_regressions.JudgeRegressionTests.test_cp03_escaped_child_keeps_engine_return_bounded)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 142, in test_cp03_escaped_child_keeps_engine_return_bounded
+    self.assertLess(elapsed, 8, "escaped child made the engine hang")
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 30.06112835998647 not less than 8 : escaped child made the engine hang
+
+======================================================================
+FAIL: test_cp04_disabled_check_cannot_execute (tests.test_judge_regressions.JudgeRegressionTests.test_cp04_disabled_check_cannot_execute)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 160, in test_cp04_disabled_check_cannot_execute
+    with self.assertRaises(ConfigError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+AssertionError: ConfigError not raised
+
+======================================================================
+FAIL: test_cp05_shared_ledger_is_workspace_scoped (tests.test_judge_regressions.JudgeRegressionTests.test_cp05_shared_ledger_is_workspace_scoped)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 178, in test_cp05_shared_ledger_is_workspace_scoped
+    self.assertNotEqual(row["status"], "PASS")
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PASS' == 'PASS'
+
+======================================================================
+FAIL: test_cp06_secure_hash_refuses_swapped_parent (tests.test_judge_regressions.JudgeRegressionTests.test_cp06_secure_hash_refuses_swapped_parent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 279, in test_cp06_secure_hash_refuses_swapped_parent
+    self.fail("secure_hash_file is missing on the pre-fix code")
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: secure_hash_file is missing on the pre-fix code
+
+======================================================================
+FAIL: test_cp06_sensitive_path_is_refused (tests.test_judge_regressions.JudgeRegressionTests.test_cp06_sensitive_path_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 307, in test_cp06_sensitive_path_is_refused
+    self.assertEqual(payload["summary_status"], "UNKNOWN")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PASS' != 'UNKNOWN'
+- PASS
++ UNKNOWN
+
+
+======================================================================
+FAIL: test_cp06r_root_replacement_after_selection_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_root_replacement_after_selection_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 204, in test_cp06r_root_replacement_after_selection_is_unknown
+    self.assertIn("workspace_replaced", str(caught.exception))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'workspace_replaced' not found in 'file_missing: <REPO_ROOT>/.scratch<TMP>'
+
+======================================================================
+FAIL: test_cp07_sparse_large_file_is_bounded_before_read (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_sparse_large_file_is_bounded_before_read)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 372, in test_cp07_sparse_large_file_is_bounded_before_read
+    self.assertIn("hash_budget", payload["results"][0]["reason"])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'hash_budget' not found in 'scope_too_large: declared scope exceeds 1024 bytes; narrow the configured globs'
+
+======================================================================
+FAIL: test_cp08_missing_declared_test_scope_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_missing_declared_test_scope_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 481, in test_cp08_missing_declared_test_scope_is_unknown
+    self.assertEqual(payload["summary_status"], "UNKNOWN")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'PASS' != 'UNKNOWN'
+- PASS
++ UNKNOWN
+
+
+----------------------------------------------------------------------
+Ran 22 tests in 57.734s
+
+FAILED (failures=12, errors=5)

@@ -1,0 +1,93 @@
+{
+  "archive": "completion-proof-0.1.4.tar.gz",
+  "hook_test": {
+    "chat_requests": 5,
+    "elapsed_s": 14.504,
+    "error": "",
+    "nudge_detected": true,
+    "observations": [
+      "write_file",
+      "proof_verify"
+    ],
+    "ok": true,
+    "receipts": [
+      [
+        "unit",
+        "PASS"
+      ],
+      [
+        "unit",
+        "PASS"
+      ]
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "Verified: agent hook scenario complete.\n",
+    "verifications": [
+      [
+        "cli",
+        "PASS"
+      ],
+      [
+        "tool",
+        "PASS"
+      ]
+    ]
+  },
+  "ok": true,
+  "skipped_reason": "",
+  "steps": [
+    {
+      "args": [
+        "plugins",
+        "list",
+        "--json"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"completion_proof\": [\n    {\n      \"description\": \"Evidence receipts for coding completion. Run user-configured checks, fingerprint the declared source/test/artifact scope, record PASS/FAIL/UNKNOWN receipts, and mark earlier passes STALE as soon as relevant files change. Local-first and deterministic; no network, no LLM in the check path, no arbitrary commands from the model.\",\n      \"name\": \"completion-proof\",\n      \"removed\": null,\n      \"source\": \"user\",\n      \"status\": \"enabled\",\n      \"version\": \"0.1.4\"\n    }\n  ],\n  \"plugin_count\": 65\n}"
+    },
+    {
+      "args": [
+        "plugins",
+        "doctor",
+        "completion-proof",
+        "--ci"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "Plugin Doctor: \n<REPO_ROOT>/.scratch<TMP>\nchive-7ooehfxb<HOME_PATH>\n  manifest: completion-proof 0.1.4 (standalone)\n  OK: runtime discovery, manifest parsing, import, and registration passed\n  registrations: 4 tool(s), 2 hook(s)\n"
+    },
+    {
+      "args": [
+        "completion-proof",
+        "verify",
+        "--json"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"duplicate_count\": 0,\n  \"engine_version\": \"0.1.4\",\n  \"finished_at\": \"2026-11-06T14:13:09.563Z\",\n  \"results\": [\n    {\n      \"artifact_globs\": [],\n      \"check_digest\": \"510780e25083f54b9ef7b39967868439722a91e9c2e5f2402e8725dd9dda9a9e\",\n      \"check_id\": \"unit\",\n      \"created_at\": \"2026-11-06T14:13:09.559Z\",\n      \"deduplicated\": false,\n      \"duplicate_of\": \"\",\n      \"duration_ms\": 46,\n      \"engine_version\": \"0.1.4\",\n      \"exclude_globs\": [\n        \".git/**\",\n        \".venv/**\",\n        \"venv/**\",\n        \"node_modules/**\",\n        \"__pycache__/**\",\n        \".pytest_cache/**\",\n        \".mypy_cache/**\",\n        \".ruff_cache/**\",\n        \"dist/**\",\n        \"build/**\",\n        \".tox/**\"\n      ],\n      \"exit_code\": 0,\n      \"files\": [\n        {\n          \"group\": \"source\",\n          \"path\": \"src/app.py\",\n          \"sha256\": \"e13df8c44af5dea1e412403910b99cc5a48f2ccbf68a66b3374d6ab9cef9fc65\",\n          \"size\": 10\n        },\n        {\n          \"group\": \"test\",\n          \"path\": \"tests/test_app.py\",\n          \"sha256\": \"b05a5dd9a343d04dadfd2cca5a5a2b9be60746cbf96cc560f440a4a72e9fa481\",\n          \"size\": 98\n        }\n      ],\n      \"input_file_count\": 2,\n      \"input_fingerprint\": \"ca921007e65bdb89c19317a959bc4a22856d47f33ab718acf62fc4a3f9a6103c\",\n      \"metadata\": {\n        \"argv\": [\n          \"<HOME>/.hermes/installs/7fcf1868c741f976/environments/9b65a72b860247ad9cefe76a713172ac/venv/bin/python3\",\n          \"-m\",\n          \"unittest\",\n          \"discover\",\n          \"-s\",\n          \"tests\",\n          \"-v\"\n        ],\n        \"cwd\": \".\",\n        \"output_complete\": true,\n        \"pipe_drain_timed_out\": false,\n        \"pipe_incomplete\": false,\n        \"platform\": \"linux\",\n        \"python\": \"3.14.9\",\n        \"source\": \"cli\",\n        \"stderr_total_bytes\": 133,\n        \"stdout_total_bytes\": 0,\n        \"workspace\": \"<REPO_ROOT>/.scratch<TMP>\"\n      },\n      \"missing\": [],\n      \"output_truncated\": false,\n      \"proves\": \"The configured command exited 0 before its timeout, and every file in the check's declared source, test and artifact scope had the recorded SHA-256 when the check was run.\",\n      \"reason\": \"\",\n      \"receipt_id\": \"r-cca299307e2c4183bffa0b67024e5f99\",\n      \"schema_version\": 2,\n      \"scope_summary\": \"2 files (108 bytes); source=['src/**/*.py']; tests=['tests/**/*.py']\",\n      \"source_globs\": [\n        \"src/**/*.py\"\n      ],\n      \"status\": \"PASS\",\n      \"stderr_excerpt\": \"test_ok (test_app.T.test_ok) ... ok\\n\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n\",\n      \"stderr_sha256\": \"308828a357bf37a1c9d570a7cefdee6d98c7af0778502b53b44f0bc30862d528\",\n      \"stdout_excerpt\": \"\",\n      \"stdout_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n      \"stored\": true,\n      \"test_globs\": [\n        \"tests/**/*.py\"\n      ],\n      \"timed_out\": false,\n      \"verification_id\": \"v-f3715664f2214bbfa41a4e2ff257f8bc\",\n      \"what_pass_does_not_prove\": \"A PASS does not prove that all software is correct, that every test was run, or that untested code works. It proves only that this configured command exited 0 on this declared scope. Evidence is local and not cryptographically tamper-proof: a process with the same OS permissions can edit the ledger.\",\n      \"what_pass_proves\": \"The configured command exited 0 before its timeout, and every file in the check's declared source, test and artifact scope had the recorded SHA-256 when the check was run.\"\n    }\n  ],\n  \"schema_version\": 2,\n  \"source\": \"cli\",\n  \"started_at\": \"2026-11-06T14:13:09.507Z\",\n  \"status_counts\": {\n    \"FAIL\": 0,\n    \"PASS\": 1,\n    \"UNKNOWN\": 0\n  },\n  \"summary_status\": \"PASS\",\n  \"verification_id\": \"v-f3715664f2214bbfa41a4e2ff257f8bc\",\n  \"what_pass_does_not_prove\": \"A PASS does not prove that all software is correct, that every test was run, or that untested code works. It proves only that this configured command exited 0 on this declared scope. Evidence is local and not cryptographically tamper-proof: a process with the same OS permissions can edit the ledger.\",\n  \"what_pass_proves\": \"The configured command exited 0 before its timeout, and every file in the check's declared source, test and artifact scope had the recorded SHA-256 when the check was run.\"\n}\n"
+    },
+    {
+      "args": [
+        "completion-proof",
+        "status",
+        "--json"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"checks\": [\n    {\n      \"check_id\": \"unit\",\n      \"command\": \"<HOME>/.hermes/installs/7fcf1868c741f976/environments/9b65a72b860247ad9cefe76a713172ac/venv/bin/python3 -m unittest discover -s tests -v\",\n      \"current_file_count\": 2,\n      \"current_fingerprint\": \"ca921007e65bdb89c19317a959bc4a22856d47f33ab718acf62fc4a3f9a6103c\",\n      \"description\": \"\",\n      \"duration_ms\": 46,\n      \"effective_cwd\": \"<REPO_ROOT>/.scratch<TMP>\",\n      \"exit_code\": 0,\n      \"fresh\": true,\n      \"input_fingerprint\": \"ca921007e65bdb89c19317a959bc4a22856d47f33ab718acf62fc4a3f9a6103c\",\n      \"reason\": \"\",\n      \"receipt\": {\n        \"artifact_globs\": [],\n        \"check_digest\": \"510780e25083f54b9ef7b39967868439722a91e9c2e5f2402e8725dd9dda9a9e\",\n        \"check_id\": \"unit\",\n        \"created_at\": \"2026-11-06T14:13:09.559Z\",\n        \"duplicate_of\": \"\",\n        \"duration_ms\": 46,\n        \"engine_version\": \"0.1.4\",\n        \"exclude_globs\": [\n          \".git/**\",\n          \".venv/**\",\n          \"venv/**\",\n          \"node_modules/**\",\n          \"__pycache__/**\",\n          \".pytest_cache/**\",\n          \".mypy_cache/**\",\n          \".ruff_cache/**\",\n          \"dist/**\",\n          \"build/**\",\n          \".tox/**\"\n        ],\n        \"exit_code\": 0,\n        \"files\": [\n          {\n            \"group\": \"source\",\n            \"path\": \"src/app.py\",\n            \"sha256\": \"e13df8c44af5dea1e412403910b99cc5a48f2ccbf68a66b3374d6ab9cef9fc65\",\n            \"size\": 10\n          },\n          {\n            \"group\": \"test\",\n            \"path\": \"tests/test_app.py\",\n            \"sha256\": \"b05a5dd9a343d04dadfd2cca5a5a2b9be60746cbf96cc560f440a4a72e9fa481\",\n            \"size\": 98\n          }\n        ],\n        \"input_file_count\": 2,\n        \"input_fingerprint\": \"ca921007e65bdb89c19317a959bc4a22856d47f33ab718acf62fc4a3f9a6103c\",\n        \"metadata\": {\n          \"argv\": [\n            \"<HOME>/.hermes/installs/7fcf1868c741f976/environments/9b65a72b860247ad9cefe76a713172ac/venv/bin/python3\",\n            \"-m\",\n            \"unittest\",\n            \"discover\",\n            \"-s\",\n            \"tests\",\n            \"-v\"\n          ],\n          \"cwd\": \".\",\n          \"output_complete\": true,\n          \"pipe_drain_timed_out\": false,\n          \"pipe_incomplete\": false,\n          \"platform\": \"linux\",\n          \"python\": \"3.14.9\",\n          \"source\": \"cli\",\n          \"stderr_total_bytes\": 133,\n          \"stdout_total_bytes\": 0,\n          \"workspace\": \"<REPO_ROOT>/.scratch<TMP>\"\n        },\n        \"missing\": [],\n        \"output_truncated\": false,\n        \"proves\": \"The configured command exited 0 before its timeout, and every file in the check's declared source, test and artifact scope had the recorded SHA-256 when the check was run.\",\n        \"reason\": \"\",\n        \"receipt_id\": \"r-cca299307e2c4183bffa0b67024e5f99\",\n        \"schema_version\": 2,\n        \"scope_summary\": \"2 files (108 bytes); source=['src/**/*.py']; tests=['tests/**/*.py']\",\n        \"source_globs\": [\n          \"src/**/*.py\"\n        ],\n        \"status\": \"PASS\",\n        \"stderr_excerpt\": \"test_ok (test_app.T.test_ok) ... ok\\n\\n----------------------------------------------------------------------\\nRan 1 test in 0.000s\\n\\nOK\\n\",\n        \"stderr_sha256\": \"308828a357bf37a1c9d570a7cefdee6d98c7af0778502b53b44f0bc30862d528\",\n        \"stdout_excerpt\": \"\",\n        \"stdout_sha256\": \"e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855\",\n        \"test_globs\": [\n          \"tests/**/*.py\"\n        ],\n        \"timed_out\": false,\n        \"verification_id\": \"v-f3715664f2214bbfa41a4e2ff257f8bc\"\n      },\n      \"scope_summary\": \"2 files (108 bytes); source=['src/**/*.py']; tests=['tests/**/*.py']\",\n      \"status\": \"PASS\",\n      \"verified_at\": \"2026-11-06T14:13:09.559Z\",\n      \"workspace\": \"<REPO_ROOT>/.scratch<TMP>\"\n    }\n  ],\n  \"engine_version\": \"0.1.4\",\n  \"schema_version\": 2,\n  \"what_pass_does_not_prove\": \"A PASS does not prove that all software is correct, that every test was run, or that untested code works. It proves only that this configured command exited 0 on this declared scope. Evidence is local and not cryptographically tamper-proof: a process with the same OS permissions can edit the ledger.\",\n  \"what_pass_proves\": \"The configured command exited 0 before its timeout, and every file in the check's declared source, test and artifact scope had the recorded SHA-256 when the check was run.\"\n}\n"
+    },
+    {
+      "args": [
+        "plugins",
+        "validate",
+        "<REPO_ROOT>/.scratch<TMP>",
+        "--json"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\n  \"ok\": true,\n  \"checks\": [\n    {\n      \"name\": \"manifest\",\n      \"ok\": true,\n      \"detail\": \"plugin.yaml parses\"\n    },\n    {\n      \"name\": \"manifest fields\",\n      \"ok\": true,\n      \"detail\": \"name, version, description present\"\n    },\n    {\n      \"name\": \"requires_hermes\",\n      \"ok\": true,\n      \"detail\": \"spec '>=0.22.7' parses\"\n    },\n    {\n      \"name\": \"config schema\",\n      \"ok\": true,\n      \"detail\": \"shape valid\"\n    },\n    {\n      \"name\": \"requires_env\",\n      \"ok\": true,\n      \"detail\": \"all entries UPPER_SNAKE\"\n    },\n    {\n      \"name\": \"oauth\",\n      \"ok\": true,\n      \"detail\": \"not declared\"\n    },\n    {\n      \"name\": \"loadable\",\n      \"ok\": true,\n      \"detail\": \"entry: __init__.py\"\n    },\n    {\n      \"name\": \"python dependencies\",\n      \"ok\": true,\n      \"detail\": \"none declared\"\n    },\n    {\n      \"name\": \"capability probe\",\n      \"ok\": true,\n      \"detail\": \"register() ran in isolation\"\n    },\n    {\n      \"name\": \"declared tools\",\n      \"ok\": true,\n      \"detail\": \"matches registrations\"\n    },\n    {\n      \"name\": \"declared hooks\",\n      \"ok\": true,\n      \"detail\": \"matches registrations\"\n    },\n    {\n      \"name\": \"declared middleware\",\n      \"ok\": true,\n      \"detail\": \"matches registrations\"\n    },\n    {\n      \"name\": \"built-in tool collisions\",\n      \"ok\": true,\n      \"detail\": \"no collisions\"\n    },\n    {\n      \"name\": \"security scan\",\n      \"ok\": true,\n      \"detail\": \"safe\"\n    },\n    {\n      \"name\": \"no core override\",\n      \"ok\": true,\n      \"detail\": \"no runtime rebinds of Hermes core\"\n    }\n  ],\n  \"warnings\": [],\n  \"isolation\": {\n    \"verdict\": \"host\",\n    \"host_ready\": true,\n    \"reasons\": [],\n    \"notes\": [\n      \"ctx.register_cli_command() is skipped in the host (`hermes <command>` subcommands are wired into the local CLI parser)\"\n    ],\n    \"ctx_methods\": [\n      \"register_cli_command\",\n      \"register_command\",\n      \"register_hook\",\n      \"register_tool\"\n    ]\n  }\n}\n"
+    }
+  ]
+}

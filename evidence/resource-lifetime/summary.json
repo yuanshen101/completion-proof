@@ -1,0 +1,13 @@
+{
+  "expectation": "old leaks FDs/fails; new stable/green with the same fixture",
+  "new_passed": true,
+  "new_timed_out": false,
+  "old_failed": true,
+  "old_ref": "0c3c313",
+  "old_timed_out": false,
+  "schema": "completion-proof-resource-lifetime-v1",
+  "tests": [
+    "test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers",
+    "test_owned_handle_closes_on_deadline_and_repeated_selection_errors"
+  ]
+}

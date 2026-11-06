@@ -1,0 +1,12 @@
+{
+  "expectation": "old fails or times out; new passes",
+  "new_passed": true,
+  "new_tests": 22,
+  "new_timed_out": false,
+  "old_failed": true,
+  "old_ref": "027c954",
+  "old_tests": 22,
+  "old_timed_out": false,
+  "schema": "completion-proof-judge-regressions-v1",
+  "scope": "CP01-CP08 synthetic fixtures only; no secrets or external services"
+}

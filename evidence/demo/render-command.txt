@@ -1,0 +1,2 @@
+CP_HERMES_TEMPLATE_HOME="${TMPDIR:?}/cp-hermes-template" \
+  python3 scripts/record_demo.py --out-dir evidence/demo

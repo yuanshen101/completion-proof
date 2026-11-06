@@ -1,0 +1,47 @@
+
+
+
+
+
+
+test_cp06r_actual_verify_does_not_pass_outside_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_actual_verify_does_not_pass_outside_root) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.050s
+
+OK
+
+test_cp06r_root_replacement_after_selection_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_root_replacement_after_selection_is_unknown) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.007s
+
+OK
+
+test_cp06r_direct_hash_refuses_swapped_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_direct_hash_refuses_swapped_root) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.005s
+
+OK
+
+test_cp07a_fifo_after_selection_does_not_block (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_fifo_after_selection_does_not_block) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.004s
+
+OK
+
+test_cp07a_pre_verify_with_injected_fifo_returns_promptly (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_pre_verify_with_injected_fifo_returns_promptly) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.039s
+
+OK
+
+test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.043s
+
+OK

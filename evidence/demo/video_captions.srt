@@ -1,0 +1,35 @@
+1
+00:00:00,000 --> 00:00:04,000
+Replay of captured real commands. Not live. Actual execution elapsed: 5.5s.
+
+2
+00:00:04,000 --> 00:00:06,400
+Configured checks are operator settings: argv, cwd, timeout and declared globs.
+
+3
+00:00:06,400 --> 00:00:08,800
+The check fails, so the receipt is FAIL. The command output is not independent evidence.
+
+4
+00:00:08,800 --> 00:00:11,200
+Fix the source, then run the configured check again.
+
+5
+00:00:11,200 --> 00:00:13,600
+The receipt is PASS. It proves only that this command exited 0 on the declared scope.
+
+6
+00:00:13,600 --> 00:00:16,000
+Freshness is computed from the current fingerprint, not from the receipt timestamp.
+
+7
+00:00:16,000 --> 00:00:18,400
+Change one covered source file. The historical PASS is retained but no longer current.
+
+8
+00:00:18,400 --> 00:00:20,800
+The status is STALE: the old receipt is not proof for this revision.
+
+9
+00:00:20,800 --> 00:00:25,800
+French summary: PASS/FAIL/UNKNOWN receipts tied to file fingerprints; a relevant change makes old PASS STALE. Local, deterministic, no network/LLM in the engine.

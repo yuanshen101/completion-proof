@@ -1,0 +1,18 @@
+{
+  "observations": [
+    "proof_verify",
+    "write_file"
+  ],
+  "receipts": [
+    [
+      "unit",
+      "PASS"
+    ]
+  ],
+  "verifications": [
+    [
+      "tool",
+      "PASS"
+    ]
+  ]
+}

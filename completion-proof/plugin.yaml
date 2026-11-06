@@ -1,0 +1,86 @@
+name: completion-proof
+version: 0.1.4
+manifest_version: 2
+api_version: 1
+license: MIT
+description: >-
+  Evidence receipts for coding completion. Run user-configured checks, fingerprint
+  the declared source/test/artifact scope, record PASS/FAIL/UNKNOWN receipts, and
+  mark earlier passes STALE as soon as relevant files change. Local-first and
+  deterministic; no network, no LLM in the check path, no arbitrary commands from
+  the model.
+author: yuanshen101
+requires_hermes: ">=0.22.7"
+tags:
+  - coding
+  - verification
+  - evidence
+  - local-first
+  - hooks
+provides_tools:
+  - proof_list_checks
+  - proof_status
+  - proof_verify
+  - proof_report
+provides_hooks:
+  - post_tool_call
+  - pre_verify
+config_schema:
+  workspace:
+    type: str
+    default: ""
+    description: >-
+      Absolute path, or path relative to the Hermes process working directory,
+      used as the root for checks and for the declared file scope. Empty means
+      the process working directory at plugin load.
+  checks:
+    type: list
+    default: []
+    description: >-
+      Operator-trusted check definitions. Each entry needs id and argv plus at
+      least one of source_globs, test_globs or artifact_globs. The model cannot
+      add or modify checks.
+  store_output:
+    type: bool
+    default: true
+    description: Store a bounded, redacted output excerpt with each receipt.
+  max_output_bytes:
+    type: int
+    default: 4096
+    description: Maximum stored bytes per output stream.
+  max_hash_bytes:
+    type: int
+    default: 268435456
+    description: Refuse to hash a declared scope larger than this many bytes.
+  max_hash_files:
+    type: int
+    default: 5000
+    description: Refuse to hash a declared scope with more files than this.
+  nudge_enabled:
+    type: bool
+    default: true
+    description: Allow a single pre_verify request when a coding turn lacks fresh evidence.
+  nudge_max_attempts:
+    type: int
+    default: 1
+    description: Maximum pre_verify nudges this plugin requests per turn (0 disables).
+  gate_deadline_ms:
+    type: int
+    default: 250
+    description: Soft budget for computing freshness at the pre_verify gate.
+  dedupe_window_seconds:
+    type: int
+    default: 600
+    description: Annotate an identical recent run as a duplicate; every execution is still stored and the latest status is authoritative.
+  retention_days:
+    type: int
+    default: 30
+    description: Receipts older than this may be removed by `hermes completion-proof gc`.
+  max_receipts_per_check:
+    type: int
+    default: 200
+    description: Maximum retained receipts per check.
+  redact_output:
+    type: bool
+    default: true
+    description: Apply best-effort secret redaction to stored output excerpts.

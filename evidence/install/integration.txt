@@ -1,0 +1,14 @@
+test_cli_verify_status_and_staleness (tests.test_hermes_integration.HermesIntegration.test_cli_verify_status_and_staleness) ... ok
+test_plugin_doctor_and_validate (tests.test_hermes_integration.HermesIntegration.test_plugin_doctor_and_validate) ... ok
+test_real_agent_turn_fires_pre_verify_and_records_receipt (tests.test_hermes_integration.HermesIntegration.test_real_agent_turn_fires_pre_verify_and_records_receipt) ... ok
+<HOME>/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/unittest/suite.py:84: ResourceWarning: unclosed file <_io.TextIOWrapper name=5 encoding='UTF-8'>
+  return self.run(*args, **kwds)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<HOME>/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/unittest/suite.py:84: ResourceWarning: unclosed file <_io.TextIOWrapper name=3 encoding='UTF-8'>
+  return self.run(*args, **kwds)
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+
+----------------------------------------------------------------------
+Ran 3 tests in 28.696s
+
+OK

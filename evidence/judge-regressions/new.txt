@@ -1,0 +1,58 @@
+
+test_cp01_child_environment_is_minimal_allowlist (tests.test_judge_regressions.JudgeRegressionTests.test_cp01_child_environment_is_minimal_allowlist) ... ok
+test_cp01_filtered_environment_function_is_allowlist (tests.test_judge_regressions.JudgeRegressionTests.test_cp01_filtered_environment_function_is_allowlist) ... ok
+test_cp02_latest_execution_status_survives_dedupe (tests.test_judge_regressions.JudgeRegressionTests.test_cp02_latest_execution_status_survives_dedupe) ... ok
+test_cp02_pass_fail_pass_latest_is_pass (tests.test_judge_regressions.JudgeRegressionTests.test_cp02_pass_fail_pass_latest_is_pass) ... ok
+test_cp03_escaped_child_keeps_engine_return_bounded (tests.test_judge_regressions.JudgeRegressionTests.test_cp03_escaped_child_keeps_engine_return_bounded) ... ok
+test_cp04_disabled_check_cannot_execute (tests.test_judge_regressions.JudgeRegressionTests.test_cp04_disabled_check_cannot_execute) ... ok
+test_cp05_shared_ledger_is_workspace_scoped (tests.test_judge_regressions.JudgeRegressionTests.test_cp05_shared_ledger_is_workspace_scoped) ... <PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c346d0>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c347c0>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c34a90>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c34b80>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c349a0>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c34c70>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c348b0>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c34f40>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c34d60>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+<PLUGIN_ROOT>/completion_proof/store.py:242: ResourceWarning: unclosed database in <sqlite3.Connection object at 0x718a33c34e50>
+  return self._conn.execute(
+ResourceWarning: Enable tracemalloc to get the object allocation traceback
+ok
+test_cp06_secure_hash_refuses_swapped_parent (tests.test_judge_regressions.JudgeRegressionTests.test_cp06_secure_hash_refuses_swapped_parent) ... ok
+test_cp06_sensitive_path_is_refused (tests.test_judge_regressions.JudgeRegressionTests.test_cp06_sensitive_path_is_refused) ... ok
+test_cp06r_actual_verify_does_not_pass_outside_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_actual_verify_does_not_pass_outside_root) ... ok
+test_cp06r_direct_hash_refuses_swapped_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_direct_hash_refuses_swapped_root) ... ok
+test_cp06r_root_replacement_after_selection_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_root_replacement_after_selection_is_unknown) ... ok
+test_cp07_gate_deadline_returns_bounded_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_gate_deadline_returns_bounded_unknown) ... ok
+test_cp07_post_tool_call_does_not_wait_on_sqlite_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_post_tool_call_does_not_wait_on_sqlite_lock) ... ok
+test_cp07_sparse_large_file_is_bounded_before_read (tests.test_judge_regressions.JudgeRegressionTests.test_cp07_sparse_large_file_is_bounded_before_read) ... ok
+test_cp07a_fifo_after_selection_does_not_block (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_fifo_after_selection_does_not_block) ... ok
+test_cp07a_pre_verify_with_injected_fifo_returns_promptly (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_pre_verify_with_injected_fifo_returns_promptly) ... ok
+test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock) ... ok
+test_cp08_missing_declared_source_file_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_missing_declared_source_file_is_unknown) ... ok
+test_cp08_missing_declared_test_scope_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_missing_declared_test_scope_is_unknown) ... ok
+test_cp08_optional_scope_is_explicit (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_optional_scope_is_explicit) ... ok
+test_cp08_source_only_scope_is_legitimate (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_source_only_scope_is_legitimate) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.722s
+
+OK

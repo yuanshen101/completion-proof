@@ -1,0 +1,58 @@
+Completion Proof — real CLI demo (isolated HERMES_HOME)
+Generated: 2026-11-06T14:13:31Z
+Fixture: src/app.py VALUE=1, test expects 2
+
+== 1. The plugin is installed and enabled ==
+hermes: source-update completion failed: [Errno 17] File exists: '<REPO_ROOT>/.scratch<TMP>'; running with the previous dependencies — run `hermes update` to finish it
+hermes: no dependency environment is committed for this install; run `hermes pm repair`
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import json,sys; d=json.load(sys.stdin); print([ (p["name"], p["status"]) for p in d if p["name"]=="completion-proof"])
+                       ~~~~~~~~~^^^^^^^^^^^
+  File "<HOME>/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/__init__.py", line 298, in load
+    return loads(fp.read(),
+        cls=cls, object_hook=object_hook,
+        parse_float=parse_float, parse_int=parse_int,
+        parse_constant=parse_constant, object_pairs_hook=object_pairs_hook, **kw)
+  File "<HOME>/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/__init__.py", line 352, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "<HOME>/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/decoder.py", line 345, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "<HOME>/.hermes/tools/python-3.14.9+20261021-linux-x64/lib/python3.14/json/decoder.py", line 363, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+== 2. Run the configured check: it fails, and the exit code is FAIL ==
+$ hermes completion-proof verify
+hermes: source-update completion failed: [Errno 17] File exists: '<REPO_ROOT>/.scratch<TMP>'; running with the previous dependencies — run `hermes update` to finish it
+hermes: no dependency environment is committed for this install; run `hermes pm repair`
+[exit 1]
+
+The model's claim 'tests passed' would not match this receipt.
+== 3. Fix the source (VALUE=2) and re-run ==
+$ hermes completion-proof verify
+hermes: source-update completion failed: [Errno 17] File exists: '<REPO_ROOT>/.scratch<TMP>'; running with the previous dependencies — run `hermes update` to finish it
+hermes: no dependency environment is committed for this install; run `hermes pm repair`
+[exit 1]
+
+== 4. The receipt is fresh ==
+$ hermes completion-proof status
+hermes: source-update completion failed: [Errno 17] File exists: '<REPO_ROOT>/.scratch<TMP>'; running with the previous dependencies — run `hermes update` to finish it
+hermes: no dependency environment is committed for this install; run `hermes pm repair`
+[exit 1]
+
+== 5. Change a covered source file: the old PASS becomes STALE ==
+$ hermes completion-proof status
+hermes: source-update completion failed: [Errno 17] File exists: '<REPO_ROOT>/.scratch<TMP>'; running with the previous dependencies — run `hermes update` to finish it
+hermes: no dependency environment is committed for this install; run `hermes pm repair`
+[exit 1]
+
+Historical PASS is retained; current status is STALE. This is the core freshness property.
+== 6. Report shows what PASS does and does not prove ==
+hermes: source-update completion failed: [Errno 17] File exists: '<REPO_ROOT>/.scratch<TMP>'; running with the previous dependencies — run `hermes update` to finish it
+hermes: no dependency environment is committed for this install; run `hermes pm repair`
+
+Demo transcript complete in 1s. This is a terminal transcript; see record_demo.py for the MP4 replay.
+Native pre_verify hook evidence (real agent turn) lives in evidence/hooks/.

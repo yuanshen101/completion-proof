@@ -1,0 +1,2 @@
+before baseline: git ref 806b11aa20533c8f64f5a8555d3e408ee4781e6d (site/ absent)
+wrote <REPO_ROOT>/evidence/site/before-404.png and <REPO_ROOT>/evidence/site/after.png

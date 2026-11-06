@@ -1,0 +1,5 @@
+{
+  "out": "../evidence/package/fresh-install.json",
+  "ok": true,
+  "steps": 5
+}

@@ -1,0 +1,26 @@
+
+test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers) ... FAIL
+test_owned_handle_closes_on_deadline_and_repeated_selection_errors (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_deadline_and_repeated_selection_errors) ... FAIL
+
+======================================================================
+FAIL: test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 59, in test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers
+    self.assertLessEqual(after - before, 3, "owned root FD leaked on byte-budget failures")
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 100 not less than or equal to 3 : owned root FD leaked on byte-budget failures
+
+======================================================================
+FAIL: test_owned_handle_closes_on_deadline_and_repeated_selection_errors (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_deadline_and_repeated_selection_errors)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 75, in test_owned_handle_closes_on_deadline_and_repeated_selection_errors
+    self.assertLessEqual(after - before, 3, "owned root FD leaked on deadline failures")
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 100 not less than or equal to 3 : owned root FD leaked on deadline failures
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.212s
+
+FAILED (failures=2)

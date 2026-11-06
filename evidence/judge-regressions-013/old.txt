@@ -1,0 +1,103 @@
+
+
+
+
+
+
+test_cp06r_actual_verify_does_not_pass_outside_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_actual_verify_does_not_pass_outside_root) ... FAIL
+
+======================================================================
+FAIL: test_cp06r_actual_verify_does_not_pass_outside_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_actual_verify_does_not_pass_outside_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 243, in test_cp06r_actual_verify_does_not_pass_outside_root
+    self.assertIn("workspace_replaced", payload["results"][0]["reason"])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'workspace_replaced' not found in "internal_error: NotADirectoryError: [Errno 20] Not a directory: '<REPO_ROOT>/.scratch<TMP>'"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.052s
+
+FAILED (failures=1)
+
+test_cp06r_root_replacement_after_selection_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_root_replacement_after_selection_is_unknown) ... ERROR
+
+======================================================================
+ERROR: test_cp06r_root_replacement_after_selection_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_root_replacement_after_selection_is_unknown)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 199, in test_cp06r_root_replacement_after_selection_is_unknown
+    compute_fingerprint(
+    ~~~~~~~~~~~~~~~~~~~^
+        self.fx.root,
+        ^^^^^^^^^^^^^
+        self.fx.settings().checks[0],
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        include_artifacts=False,
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<REPO_ROOT>/.scratch<TMP>", line 345, in compute_fingerprint
+    digest, size = secure_hash_file(
+                   ~~~~~~~~~~~~~~~~^
+        root,
+        ^^^^^
+    ...<2 lines>...
+        deadline=deadline,
+        ^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "<REPO_ROOT>/.scratch<TMP>", line 97, in secure_hash_file
+    fd = _open_secure(root, relative)
+  File "<REPO_ROOT>/.scratch<TMP>", line 66, in _open_secure
+    dir_fd = os.open(str(root), flags_dir)
+NotADirectoryError: [Errno 20] Not a directory: '<REPO_ROOT>/.scratch<TMP>'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.007s
+
+FAILED (errors=1)
+
+test_cp06r_direct_hash_refuses_swapped_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_direct_hash_refuses_swapped_root) ... ERROR
+
+======================================================================
+ERROR: test_cp06r_direct_hash_refuses_swapped_root (tests.test_judge_regressions.JudgeRegressionTests.test_cp06r_direct_hash_refuses_swapped_root)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 266, in test_cp06r_direct_hash_refuses_swapped_root
+    secure_hash_file(self.fx.root, relative)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<REPO_ROOT>/.scratch<TMP>", line 97, in secure_hash_file
+    fd = _open_secure(root, relative)
+  File "<REPO_ROOT>/.scratch<TMP>", line 66, in _open_secure
+    dir_fd = os.open(str(root), flags_dir)
+NotADirectoryError: [Errno 20] Not a directory: '<REPO_ROOT>/.scratch<TMP>'
+
+----------------------------------------------------------------------
+Ran 1 test in 0.006s
+
+FAILED (errors=1)
+
+test_cp07a_fifo_after_selection_does_not_block (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_fifo_after_selection_does_not_block) ... 
+test_cp07a_pre_verify_with_injected_fifo_returns_promptly (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_pre_verify_with_injected_fifo_returns_promptly) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.038s
+
+OK
+
+test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock) ... FAIL
+
+======================================================================
+FAIL: test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock (tests.test_judge_regressions.JudgeRegressionTests.test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 463, in test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock
+    self.assertLess(elapsed, 0.25)
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+AssertionError: 0.5013352950336412 not less than 0.25
+
+----------------------------------------------------------------------
+Ran 1 test in 0.560s
+
+FAILED (failures=1)

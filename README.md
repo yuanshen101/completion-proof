@@ -14,7 +14,7 @@ changes.
 - **Evidence:** [`evidence/`](evidence/)
 - **Acceptance:** [`docs/acceptance.md`](docs/acceptance.md)
 - **Submission steps for a human publisher:** [`docs/publication-and-submission.md`](docs/publication-and-submission.md)
-- **Standalone archive:** `evidence/package/completion-proof-0.1.4.tar.gz` plus `SHA256SUMS`.
+- **Standalone archive:** `evidence/package/completion-proof-0.1.5.tar.gz` plus `SHA256SUMS`.
 
 This is the **finished technical kit** prepared privately. It is **not a submitted
 entry**: no public repository, catalog PR, X post or form submission is implied by
@@ -33,13 +33,13 @@ UNKNOWN unless the operator explicitly enables `allow_missing_patterns`.
 ## Install
 
 ```bash
-tar -xzf evidence/package/completion-proof-0.1.4.tar.gz \
+tar -xzf evidence/package/completion-proof-0.1.5.tar.gz \
   -C "${HERMES_HOME:-$HOME/.hermes}/plugins"
 hermes plugins enable completion-proof
 hermes plugins doctor completion-proof --ci
 ```
 
-Requires Hermes `>=0.22.7` (the version actually exercised). Review the check
+Requires Hermes `>=0.22.7`; current 0.1.5 evidence was exercised with `0.23.0`. Review the check
 configuration before trusting it.
 
 ## Rule 13 disclosure

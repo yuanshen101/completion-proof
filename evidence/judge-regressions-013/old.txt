@@ -16,7 +16,7 @@ Traceback (most recent call last):
 AssertionError: 'workspace_replaced' not found in "internal_error: NotADirectoryError: [Errno 20] Not a directory: '<REPO_ROOT>/.scratch<TMP>'"
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.052s
+Ran 1 test in 0.059s
 
 FAILED (failures=1)
 
@@ -54,7 +54,7 @@ Traceback (most recent call last):
 NotADirectoryError: [Errno 20] Not a directory: '<REPO_ROOT>/.scratch<TMP>'
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.007s
+Ran 1 test in 0.008s
 
 FAILED (errors=1)
 
@@ -82,7 +82,7 @@ test_cp07a_fifo_after_selection_does_not_block (tests.test_judge_regressions.Jud
 test_cp07a_pre_verify_with_injected_fifo_returns_promptly (tests.test_judge_regressions.JudgeRegressionTests.test_cp07a_pre_verify_with_injected_fifo_returns_promptly) ... ok
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.038s
+Ran 1 test in 0.039s
 
 OK
 
@@ -95,9 +95,9 @@ Traceback (most recent call last):
   File "<REPO_ROOT>/.scratch<TMP>", line 463, in test_cp07b_gate_does_not_wait_on_writer_plus_observation_lock
     self.assertLess(elapsed, 0.25)
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
-AssertionError: 0.5013352950336412 not less than 0.25
+AssertionError: 0.5013667509774677 not less than 0.25
 
 ----------------------------------------------------------------------
-Ran 1 test in 0.560s
+Ran 1 test in 0.561s
 
 FAILED (failures=1)

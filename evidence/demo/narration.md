@@ -20,4 +20,4 @@ devient STALE dès qu'un fichier pertinent change. Le moteur est local et
 déterministe, sans réseau ni LLM. Cette vidéo est un replay d'une exécution réelle ;
 le temps d'exécution mesuré est indiqué séparément.
 
-Actual command execution elapsed: 5.5s.
+Actual command execution elapsed: 5.75s.

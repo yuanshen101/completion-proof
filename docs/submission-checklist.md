@@ -61,8 +61,9 @@ items are blockers, not failures to hide.
 > only that the configured command exited 0 on declared scope; evidence is local
 > and not cryptographic or a correctness proof. `pre_verify` is a bounded,
 > one-shot request, not a fail-closed gate. Credential protection is name/path and
-> allowlist based, not a content guarantee. Requires Hermes >=0.22.7, the actual
-> exercised runtime; Linux tested, Windows-native untested.
+> allowlist based, not a content guarantee. Requires Hermes >=0.22.7; current
+> 0.1.5 evidence was exercised with 0.23.0 (earlier runs 0.22.7). Linux tested,
+> Windows-native untested.
 
 ## Suggested one-line description
 

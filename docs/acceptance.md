@@ -1,4 +1,4 @@
-# Acceptance checklist — Completion Proof 0.1.4
+# Acceptance checklist — Completion Proof 0.1.5
 
 **Verdict: finished technical kit for this offline run; not a submitted entry.**
 This document maps the original assignment and issue #10 follow-up to committed
@@ -15,7 +15,7 @@ root so the plugin directory remains independently packageable and scannable.
 
 | # | Requirement | Status | Evidence / note |
 |---|---|---|---|
-| 1.1 | Verify the current plugin/hooks contract from current docs/source, not guesses | PASS | `plugin.yaml`, `completion-proof/__init__.py`, `completion-proof/completion_proof/runtime.py`; `evidence/install/doctor.txt` (real registration), `evidence/install/validate.json`; built against the current local Hermes 0.22.7 / requires >=0.22.7 |
+| 1.1 | Verify the current plugin/hooks contract from current docs/source, not guesses | PASS | `plugin.yaml`, `completion-proof/__init__.py`, `completion-proof/completion_proof/runtime.py`; `evidence/install/doctor.txt` (real registration), `evidence/install/validate.json`; built/validated with current local Hermes 0.23.0 (earlier runs 0.22.7); requires >=0.22.7, not a blanket upstream claim |
 | 1.2 | Competitor differentiation (especially afterforge/crew) | PASS | `completion-proof/docs/differentiation.md`; based on the merged research docs and public catalog descriptions, not a code audit |
 | 1.3 | Architecture and threat model | PASS | `completion-proof/docs/architecture.md`, `completion-proof/docs/threat-model.md` |
 | 1.4 | Explicit product acceptance checklist | PASS | this file |
@@ -119,7 +119,7 @@ is deterministic-engine evidence, not an agent benchmark. The site says so.
 
 | # | Requirement | Status | Evidence / note |
 |---|---|---|---|
-| 7.1 | Standalone plugin archive + SHA-256 manifest produced by reproducible script | PASS | `scripts/package.py`; `evidence/package/completion-proof-0.1.4.tar.gz`, `SHA256SUMS`; deterministic tar/gzip |
+| 7.1 | Standalone plugin archive + SHA-256 manifest produced by reproducible script | PASS | `scripts/package.py`; `evidence/package/completion-proof-0.1.5.tar.gz`, `SHA256SUMS`; deterministic tar/gzip |
 | 7.2 | Fresh install smoke from archive | PASS | `evidence/package/fresh-install.json` / `.txt` |
 | 7.3 | Candidate catalog YAML template meeting current schema; URL/SHA placeholders visibly unresolved | PASS | `completion-proof/docs/catalog-entry.template.yaml` with `<PUBLIC_REPOSITORY_URL_UNRESOLVED>` and `<FULL_40_CHARACTER_COMMIT_SHA_UNRESOLVED>` |
 | 7.4 | Submission checklist and text | PASS | `docs/submission-checklist.md` |
@@ -206,6 +206,15 @@ by the external supervisor at 8 s (`evidence/judge-regressions-013/{summary.json
 | Submission checklist disclosure was incomplete | PASS | Replaced with the complete Rule 13 text: automatic configured checks without per-run prompt, OS privilege/no sandbox, commands may network/read/spawn/consume, SQLite metadata/scope hashes/excerpts/retention/GC, explicit `init --write`, 1-600 s timeout/no escaped-descendant guarantee, no engine network/LLM/daemon/telemetry, bounded nudge, honest credential scope. |
 
 Evidence: `evidence/resource-lifetime/` (old 0.1.3 two tests fail with 100 leaked FDs; new two tests pass; full new suite includes caller-owned and FIFO cases). No host FD limit change; tests skip outside POSIX `/proc/self/fd`.
+
+## Single-owner close follow-up (0.1.5)
+
+| Finding | Status | Fix / regression |
+|---|---|---|
+| `run_check` closed the acquired root handle in its inner pre-fingerprint exception and again in the outer `finally` | PASS | Removed the inner close; exactly one owner close remains in the existing `finally`. Synthetic FD-reuse probe: real `engine.verify` byte-budget failure; first owner close frees the root fd, a real synthetic victim file is opened into that number, and a second close would hit it. Old 0.1.4 reports 2 closes/fails; 0.1.5 reports 1 close and the victim remains valid. Borrowed `compute_fingerprint` handle survives a hash error; all test FDs are cleaned. |
+| Threat-model dedupe wording implied dedupe elides storage | PASS | `threat-model.md` now says retention bounds storage and dedupe only annotates; every execution is a real row. |
+
+Evidence: `evidence/owner-cleanup/` (old `155d582` fails with 2 owner closes; new passes with 1 and preserved victim FD). No host FD-limit change; synthetic scratch files only.
 
 ## Required PR content paths
 

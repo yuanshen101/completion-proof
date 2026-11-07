@@ -1,0 +1,16 @@
+
+test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim (tests.test_resource_lifetime.ResourceLifetimeTests.test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim) ... FAIL
+
+======================================================================
+FAIL: test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim (tests.test_resource_lifetime.ResourceLifetimeTests.test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "<REPO_ROOT>/.scratch<TMP>", line 127, in test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim
+    self.assertEqual(state["closes"], 1, "run_check closed the owner handle more than once")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : run_check closed the owner handle more than once
+
+----------------------------------------------------------------------
+Ran 1 test in 0.052s
+
+FAILED (failures=1)

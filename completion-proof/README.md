@@ -53,14 +53,15 @@ auto-update itself.
 
 ## Install
 
-Requirements: Hermes with native plugin support (`requires_hermes >= 0.22.7`). The build was
-validated with Hermes `0.22.7` (release line `2026.9.24`); see
+Requirements: Hermes with native plugin support (`requires_hermes >= 0.22.7`). The current
+0.1.5 evidence was validated with Hermes `0.23.0` (release line `2026.9.24`); the earlier
+0.1.2–0.1.4 runs used `0.22.7`. See
 [`evidence/environment.json`](../evidence/environment.json).
 
 ### From the release archive
 
 ```bash
-tar -xzf completion-proof-0.1.4.tar.gz -C "${HERMES_HOME:-$HOME/.hermes}/plugins"
+tar -xzf completion-proof-0.1.5.tar.gz -C "${HERMES_HOME:-$HOME/.hermes}/plugins"
 hermes plugins enable completion-proof
 hermes plugins doctor completion-proof --ci
 ```

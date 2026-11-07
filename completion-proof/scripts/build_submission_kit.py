@@ -184,7 +184,7 @@ step; see `docs/publication-and-submission.md`.
 ## Install the standalone plugin
 
 ```bash
-tar -xzf evidence/package/completion-proof-0.1.4.tar.gz \
+tar -xzf evidence/package/completion-proof-0.1.5.tar.gz \
   -C "${HERMES_HOME:-$HOME/.hermes}/plugins"
 hermes plugins enable completion-proof
 hermes plugins doctor completion-proof --ci

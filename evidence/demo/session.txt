@@ -1,5 +1,5 @@
 Completion Proof — real CLI demo (isolated HERMES_HOME)
-Generated: 2026-11-06T14:13:31Z
+Generated: 2026-11-07T13:41:27Z
 Fixture: src/app.py VALUE=1, test expects 2
 
 == 1. The plugin is installed and enabled ==

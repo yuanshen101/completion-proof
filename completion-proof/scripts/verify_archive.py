@@ -2,7 +2,7 @@
 """Fresh-install smoke test from the built archive, in a throwaway HERMES_HOME.
 
 Usage:
-    python3 scripts/verify_archive.py --archive evidence/package/completion-proof-0.1.4.tar.gz \
+    python3 scripts/verify_archive.py --archive evidence/package/completion-proof-0.1.5.tar.gz \
         --template-home "${TMPDIR:?}/cp-hermes-template" --out evidence/package/fresh-install.json
 """
 

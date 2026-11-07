@@ -53,7 +53,7 @@ tier: community
 category: tools
 requires_hermes: ">=0.22.7"
 docs_url: <PUBLIC_README_URL_AT_SHA>
-version: "0.1.4"
+version: "0.1.5"
 platforms: [linux]
 capabilities:
   provides_tools: [proof_list_checks, proof_status, proof_verify, proof_report]
@@ -79,8 +79,9 @@ capabilities:
 > deliberately escaped descendant is not guaranteed to be killed. A PASS proves
 > only that the configured command exited 0 on declared scope; evidence is local
 > and not cryptographic or a correctness proof. `pre_verify` is a bounded,
-> one-shot request, not a fail-closed gate. Requires Hermes >=0.22.7, the actual
-> exercised runtime; Linux tested, Windows-native untested.
+> one-shot request, not a fail-closed gate. Requires Hermes >=0.22.7; current
+> 0.1.5 evidence was exercised with 0.23.0 (earlier runs 0.22.7). Linux tested,
+> Windows-native untested.
 
 ## Submission text (draft)
 

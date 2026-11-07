@@ -124,7 +124,7 @@ Traceback (most recent call last):
   File "<REPO_ROOT>/.scratch<TMP>", line 142, in test_cp03_escaped_child_keeps_engine_return_bounded
     self.assertLess(elapsed, 8, "escaped child made the engine hang")
     ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AssertionError: 30.06112835998647 not less than 8 : escaped child made the engine hang
+AssertionError: 30.06293952098349 not less than 8 : escaped child made the engine hang
 
 ======================================================================
 FAIL: test_cp04_disabled_check_cannot_execute (tests.test_judge_regressions.JudgeRegressionTests.test_cp04_disabled_check_cannot_execute)
@@ -196,6 +196,6 @@ AssertionError: 'PASS' != 'UNKNOWN'
 
 
 ----------------------------------------------------------------------
-Ran 22 tests in 57.734s
+Ran 22 tests in 58.281s
 
 FAILED (failures=12, errors=5)

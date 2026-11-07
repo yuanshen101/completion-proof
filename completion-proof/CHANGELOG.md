@@ -3,6 +3,22 @@
 All notable changes to Completion Proof are recorded here. The format follows
 Keep a Changelog; versions follow Semantic Versioning for the plugin surface.
 
+## [0.1.5] — 2026-11-07
+
+### Single owner close
+
+- Remove the redundant `root_handle.close()` in `run_check`'s inner
+  pre-fingerprint exception. The existing outer `finally` is the single owner;
+  a byte-budget/scope error can no longer free the root fd and then close a
+  synthetic/real descriptor that reused that number.
+- Add a real `engine.verify` byte-budget regression with scheduled FD reuse:
+  old 0.1.4 closes twice and would close the victim; 0.1.5 closes once and the
+  victim remains valid. Borrowed `compute_fingerprint` handles still survive
+  errors; all test FDs are cleaned. POSIX `/proc/self/fd` only.
+- Clarify threat-model dedupe terminology: retention bounds storage; dedupe is
+  an annotation, never storage elision.
+- Version 0.1.5; archive/evidence/export regenerated. No feature changes.
+
 ## [0.1.4] — 2026-11-06
 
 ### Resource lifetime and disclosure consistency

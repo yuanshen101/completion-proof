@@ -1,0 +1,7 @@
+
+test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim (tests.test_resource_lifetime.ResourceLifetimeTests.test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.050s
+
+OK

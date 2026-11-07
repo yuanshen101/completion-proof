@@ -48,7 +48,7 @@
 | Ledger tampering | Local SQLite with WAL; receipts immutable in normal operation; verification log | Same-permission user can edit or delete it; **not cryptographic attestation** |
 | Corrupt/malformed DB | `StoreCorruptError`, no silent recreation, explicit CLI error | User must back up/remove the DB to recover |
 | Concurrent writers / lock | Writes use bounded retries; reads use a separate read-only connection with `busy_timeout=0`; a busy snapshot becomes UNKNOWN within the gate budget | A filesystem that blocks a syscall is still bounded best-effort, not hard realtime |
-| Duplicate receipts inflate storage | Run-key dedupe window; retention command | A changed timestamp/output creates a new legitimate receipt |
+| Receipt storage growth | Retention bounds storage; the dedupe window only annotates duplicate runs and never elides a stored receipt | Every execution, including a changed timestamp/output, is a real row; compact/GC is an explicit retention operation |
 | Model claims tests passed without evidence | `pre_verify` nudge; receipts only from plugin-run configured checks; `post_tool_call` observations labelled UNTRUSTED_CONTEXT | The nudge is bounded and not fail-closed; the model can still finish without proof |
 | Infinite nudge loop | Plugin returns continue only while `attempt < nudge_max_attempts` (default 1); Hermes caps consecutive nudges; no hook on non-code turns | A misconfigured Hermes with a very high cap could still spend extra turns |
 | Plugin tool deferred by `tool_search` | Nudge includes `tool_call` syntax; CLI/slash always available; README documents it | The model may still fail to invoke it; the receipt is then absent, not faked |

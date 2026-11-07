@@ -117,9 +117,11 @@ wrapped or rebound. No auto-updater, no network, no credential reads.
 
 ## Versioning and compatibility
 
-- Plugin version `0.1.4`, manifest schema v2, API generation 1.
+- Plugin version `0.1.5`, manifest schema v2, API generation 1.
 - `requires_hermes: ">=0.22.7"`.
-- Validated with Hermes `0.22.7` release line `2026.9.24`.
+- Current evidence validated with Hermes `0.23.0` release line `2026.9.24`;
+  earlier 0.1.2–0.1.4 runs used `0.22.7`. The floor remains `>=0.22.7`, not a
+  claim about every upstream build.
 - SQLite schema version 2; older ledgers are opened and their receipts become
   STALE under the workspace-aware fingerprint. Newer schema versions are refused
   rather than downgraded.

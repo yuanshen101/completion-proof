@@ -426,13 +426,10 @@ class ProofEngine:
             from .fingerprint import open_root_handle
 
             root_handle = open_root_handle(root)
-            try:
-                pre = self._fingerprint(
-                    root, check, include_artifacts=False, root_handle=root_handle
-                )
-            except Exception:
-                root_handle.close()
-                raise
+            # One owner: the outer finally closes this handle on every exit.
+            pre = self._fingerprint(
+                root, check, include_artifacts=False, root_handle=root_handle
+            )
             if not check.allow_missing_patterns:
                 missing_required = [
                     marker

@@ -12,6 +12,7 @@ import tempfile
 import time
 import unittest
 from pathlib import Path
+from unittest import mock
 
 PLUGIN_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if PLUGIN_ROOT not in sys.path:
@@ -91,6 +92,68 @@ class ResourceLifetimeTests(unittest.TestCase):
         finally:
             target.unlink()
             target.write_text("x=1\n")
+
+    def test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim(self):
+        engine = self.fx.engine(max_hash_bytes=1024)
+        (self.fx.root / "src" / "app.py").write_text("x" * 2048 + "\n")
+        victim_path = self.fx.base / "synthetic-victim.txt"
+        victim_path.write_text("victim\n")
+        state = {"closes": 0, "victim_fd": None, "handle": None}
+
+        class TrackingHandle:
+            def __init__(self, handle):
+                self._handle = handle
+
+            def __getattr__(self, name):
+                return getattr(self._handle, name)
+
+            def close(self):
+                state["closes"] += 1
+                self._handle.close()
+                if state["closes"] == 1:
+                    # The first owner close frees the root fd; this real
+                    # allocation reuses the number. A second close would hit it.
+                    state["victim_fd"] = os.open(str(victim_path), os.O_RDONLY)
+
+        def factory(root):
+            handle = open_root_handle(root)
+            state["handle"] = handle
+            return TrackingHandle(handle)
+
+        try:
+            with mock.patch("completion_proof.fingerprint.open_root_handle", side_effect=factory):
+                payload = engine.verify()
+            self.assertEqual(payload["summary_status"], "UNKNOWN")
+            self.assertEqual(state["closes"], 1, "run_check closed the owner handle more than once")
+            self.assertIsNotNone(state["victim_fd"])
+            os.fstat(state["victim_fd"])  # must still be valid after the owner close
+        finally:
+            if state["victim_fd"] is not None:
+                try:
+                    os.close(state["victim_fd"])
+                except OSError:
+                    pass
+            if state["handle"] is not None:
+                state["handle"].close()
+
+    def test_borrowed_handle_survives_hash_error(self):
+        if open_root_handle is None:
+            self.fail("open_root_handle is missing")
+        check = self.fx.settings().checks[0]
+        (self.fx.root / "src" / "app.py").write_text("x" * 2048 + "\n")
+        handle = open_root_handle(self.fx.root)
+        try:
+            with self.assertRaises(Exception):
+                compute_fingerprint(
+                    self.fx.root,
+                    check,
+                    include_artifacts=False,
+                    max_bytes=1024,
+                    root_handle=handle,
+                )
+            os.fstat(handle.fd)  # borrowed descriptor remains the caller's
+        finally:
+            handle.close()
 
     def test_caller_owned_handle_stays_open_until_owner_closes(self):
         if open_root_handle is None:

@@ -1,0 +1,10 @@
+{
+  "expectation": "old double-closes and closes synthetic victim; new one close preserves it",
+  "new_passed": true,
+  "new_timed_out": false,
+  "old_failed": true,
+  "old_ref": "155d582",
+  "old_timed_out": false,
+  "schema": "completion-proof-owner-cleanup-v1",
+  "test": "test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim"
+}

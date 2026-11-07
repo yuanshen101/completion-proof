@@ -1,10 +1,10 @@
 {
-  "actual_execution_elapsed_s": 5.5,
+  "actual_execution_elapsed_s": 5.75,
   "commands": [
     {
       "caption": "Configured checks are operator settings: argv, cwd, timeout and declared globs.",
       "command": "hermes completion-proof checks",
-      "elapsed_s": 1.127,
+      "elapsed_s": 1.189,
       "excerpt": false,
       "output": [
         "unit  enabled",
@@ -19,11 +19,11 @@
     {
       "caption": "The check fails, so the receipt is FAIL. The command output is not independent evidence.",
       "command": "hermes completion-proof verify",
-      "elapsed_s": 1.113,
+      "elapsed_s": 1.201,
       "excerpt": false,
       "output": [
         "Summary: FAIL",
-        "  unit: FAIL (exit=1, 45 ms) \u2014 command exited 1",
+        "  unit: FAIL (exit=1, 49 ms) \u2014 command exited 1",
         "",
         "PASS proves only that the configured command exited 0 on the declared scope."
       ],
@@ -32,7 +32,7 @@
     {
       "caption": "Fix the source, then run the configured check again.",
       "command": "sed -i 's/VALUE = 1/VALUE = 2/' src/app.py",
-      "elapsed_s": 0.011,
+      "elapsed_s": 0.014,
       "excerpt": false,
       "output": [],
       "returncode": 0
@@ -40,11 +40,11 @@
     {
       "caption": "The receipt is PASS. It proves only that this command exited 0 on the declared scope.",
       "command": "hermes completion-proof verify",
-      "elapsed_s": 1.126,
+      "elapsed_s": 1.167,
       "excerpt": false,
       "output": [
         "Summary: PASS",
-        "  unit: PASS (exit=0, 44 ms)",
+        "  unit: PASS (exit=0, 55 ms)",
         "",
         "PASS proves only that the configured command exited 0 on the declared scope."
       ],
@@ -53,16 +53,16 @@
     {
       "caption": "Freshness is computed from the current fingerprint, not from the receipt timestamp.",
       "command": "hermes completion-proof status",
-      "elapsed_s": 1.07,
+      "elapsed_s": 1.059,
       "excerpt": true,
       "output": [
         "# Completion Proof report",
         "",
-        "Engine 0.1.4 \u00b7 schema 2",
+        "Engine 0.1.5 \u00b7 schema 2",
         "",
         "| Check | Status | Exit | Duration | Verified (UTC) | Command | Scope |",
         "|---|---|---|---|---|---|---|",
-        "| unit | PASS | 0 | 44 ms | 2026-11-06T14:13:36.198Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |",
+        "| unit | PASS | 0 | 55 ms | 2026-11-07T13:41:31.691Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |",
         "",
         "## What PASS proves",
         ""
@@ -80,16 +80,16 @@
     {
       "caption": "The status is STALE: the old receipt is not proof for this revision.",
       "command": "hermes completion-proof status",
-      "elapsed_s": 1.038,
+      "elapsed_s": 1.112,
       "excerpt": true,
       "output": [
         "# Completion Proof report",
         "",
-        "Engine 0.1.4 \u00b7 schema 2",
+        "Engine 0.1.5 \u00b7 schema 2",
         "",
         "| Check | Status | Exit | Duration | Verified (UTC) | Command | Scope |",
         "|---|---|---|---|---|---|---|",
-        "| unit | STALE | 0 | 44 ms | 2026-11-06T14:13:36.198Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |",
+        "| unit | STALE | 0 | 55 ms | 2026-11-07T13:41:31.691Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |",
         "|  | \u21b3 relevant source, test, artifact or check configuration changed since this receipt |  |  |  |  |  |",
         "",
         "## What PASS proves"

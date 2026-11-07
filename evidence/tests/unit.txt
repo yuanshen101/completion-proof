@@ -64,12 +64,14 @@ test_cp08_missing_declared_source_file_is_unknown (tests.test_judge_regressions.
 test_cp08_missing_declared_test_scope_is_unknown (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_missing_declared_test_scope_is_unknown) ... ok
 test_cp08_optional_scope_is_explicit (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_optional_scope_is_explicit) ... ok
 test_cp08_source_only_scope_is_legitimate (tests.test_judge_regressions.JudgeRegressionTests.test_cp08_source_only_scope_is_legitimate) ... ok
+test_borrowed_handle_survives_hash_error (tests.test_resource_lifetime.ResourceLifetimeTests.test_borrowed_handle_survives_hash_error) ... ok
 test_caller_owned_handle_stays_open_until_owner_closes (tests.test_resource_lifetime.ResourceLifetimeTests.test_caller_owned_handle_stays_open_until_owner_closes) ... ok
 test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_byte_budget_gate_failures_and_recovers) ... ok
 test_owned_handle_closes_on_deadline_and_repeated_selection_errors (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_deadline_and_repeated_selection_errors) ... ok
 test_owned_handle_closes_on_fifo_hash_errors (tests.test_resource_lifetime.ResourceLifetimeTests.test_owned_handle_closes_on_fifo_hash_errors) ... ok
+test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim (tests.test_resource_lifetime.ResourceLifetimeTests.test_run_check_owner_closes_exactly_once_and_preserves_synthetic_victim) ... ok
 
 ----------------------------------------------------------------------
-Ran 69 tests in 11.198s
+Ran 71 tests in 11.441s
 
 OK

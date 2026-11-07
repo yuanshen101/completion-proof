@@ -8,7 +8,7 @@ tier: community
 category: tools
 requires_hermes: ">=0.22.7"
 docs_url: <PUBLIC_README_URL_AT_PINNED_SHA_UNRESOLVED>
-version: "0.1.4"
+version: "0.1.5"
 platforms: [linux]
 capabilities:
   provides_tools:

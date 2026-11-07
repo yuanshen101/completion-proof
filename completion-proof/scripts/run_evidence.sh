@@ -19,8 +19,8 @@ fi
 mkdir -p "$TMPDIR"
 export PYTHONDONTWRITEBYTECODE=1
 OUT=../evidence
-mkdir -p "$OUT"/{tests,install,hooks,benchmark,package,site,demo,judge-regressions,judge-regressions-013,judge-regressions-013/cp07a,resource-lifetime}
-rm -rf "$OUT/tests"/* "$OUT/install"/* "$OUT/hooks"/* "$OUT/benchmark"/* "$OUT/package"/* "$OUT/site"/* "$OUT/demo"/* "$OUT/judge-regressions"/* "$OUT/judge-regressions-013"/* "$OUT/resource-lifetime"/*
+mkdir -p "$OUT"/{tests,install,hooks,benchmark,package,site,demo,judge-regressions,judge-regressions-013,judge-regressions-013/cp07a,resource-lifetime,owner-cleanup}
+rm -rf "$OUT/tests"/* "$OUT/install"/* "$OUT/hooks"/* "$OUT/benchmark"/* "$OUT/package"/* "$OUT/site"/* "$OUT/demo"/* "$OUT/judge-regressions"/* "$OUT/judge-regressions-013"/* "$OUT/resource-lifetime"/* "$OUT/owner-cleanup"/*
 
 FAILED=0
 run_capture() {
@@ -115,6 +115,10 @@ run_capture "$OUT/judge-regressions-013/cp07a/run.txt" python3 scripts/run_judge
 echo "== resource lifetime old 0.1.3 vs new =="
 run_capture "$OUT/resource-lifetime/run.txt" python3 scripts/run_resource_lifetime.py \
   --old-ref 0c3c313 --out-dir "$OUT/resource-lifetime"
+
+echo "== single-owner close old 0.1.4 vs new =="
+run_capture "$OUT/owner-cleanup/run.txt" python3 scripts/run_owner_cleanup.py \
+  --old-ref 155d582 --out-dir "$OUT/owner-cleanup"
 
 echo "== sanitize local paths =="
 python3 scripts/sanitize_evidence.py "$OUT" || FAILED=1

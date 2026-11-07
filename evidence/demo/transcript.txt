@@ -1,5 +1,5 @@
 Completion Proof — captured real CLI run (replay, not live)
-Actual execution elapsed: 5.5s
+Actual execution elapsed: 5.75s
 Timing in the MP4 is fixed replay timing; no live/speed claim.
 
 $ hermes completion-proof checks
@@ -9,38 +9,38 @@ unit  enabled
   source: ['src/**/*.py']
   tests:  ['tests/**/*.py']
   artifacts: []
-[exit 0] (actual 1.127s)
+[exit 0] (actual 1.189s)
 
 $ hermes completion-proof verify
 Summary: FAIL
-  unit: FAIL (exit=1, 45 ms) — command exited 1
+  unit: FAIL (exit=1, 49 ms) — command exited 1
 
 PASS proves only that the configured command exited 0 on the declared scope.
-[exit 1] (actual 1.113s)
+[exit 1] (actual 1.201s)
 
 $ sed -i 's/VALUE = 1/VALUE = 2/' src/app.py
-[exit 0] (actual 0.011s)
+[exit 0] (actual 0.014s)
 
 $ hermes completion-proof verify
 Summary: PASS
-  unit: PASS (exit=0, 44 ms)
+  unit: PASS (exit=0, 55 ms)
 
 PASS proves only that the configured command exited 0 on the declared scope.
-[exit 0] (actual 1.126s)
+[exit 0] (actual 1.167s)
 
 $ hermes completion-proof status
 # Completion Proof report
 
-Engine 0.1.4 · schema 2
+Engine 0.1.5 · schema 2
 
 | Check | Status | Exit | Duration | Verified (UTC) | Command | Scope |
 |---|---|---|---|---|---|---|
-| unit | PASS | 0 | 44 ms | 2026-11-06T14:13:36.198Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |
+| unit | PASS | 0 | 55 ms | 2026-11-07T13:41:31.691Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |
 
 ## What PASS proves
 
 [displayed output excerpt; full capture in demo_capture.json]
-[exit 0] (actual 1.070s)
+[exit 0] (actual 1.059s)
 
 $ sed -i 's/VALUE = 2/VALUE = 3/' src/app.py
 [exit 0] (actual 0.011s)
@@ -48,14 +48,14 @@ $ sed -i 's/VALUE = 2/VALUE = 3/' src/app.py
 $ hermes completion-proof status
 # Completion Proof report
 
-Engine 0.1.4 · schema 2
+Engine 0.1.5 · schema 2
 
 | Check | Status | Exit | Duration | Verified (UTC) | Command | Scope |
 |---|---|---|---|---|---|---|
-| unit | STALE | 0 | 44 ms | 2026-11-06T14:13:36.198Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |
+| unit | STALE | 0 | 55 ms | 2026-11-07T13:41:31.691Z | `python3 -m unittest discover -s tests -v` | 2 files (290 bytes); source=['src/**/*.py']; tests=['tests/**/*.py'] |
 |  | ↳ relevant source, test, artifact or check configuration changed since this receipt |  |  |  |  |  |
 
 ## What PASS proves
 [displayed output excerpt; full capture in demo_capture.json]
-[exit 0] (actual 1.038s)
+[exit 0] (actual 1.112s)
 

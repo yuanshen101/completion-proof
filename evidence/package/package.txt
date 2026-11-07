@@ -1,4 +1,4 @@
-archive:  ../evidence/package/completion-proof-0.1.4.tar.gz
-sha256:   687c6b1a2e13ec74ad31c6f7e5931f772a5cc502f36ae23d762a425ac6687dde
-bytes:    109417
+archive:  ../evidence/package/completion-proof-0.1.5.tar.gz
+sha256:   e4d36281c6c161326d0bcdfe79c0e86b24a579cffe2579162c1ace511684388e
+bytes:    110534
 manifest: ../evidence/package/SHA256SUMS

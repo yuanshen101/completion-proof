@@ -1,5 +1,5 @@
-old: returncode=1 timed_out=False elapsed=0.325s
-new: returncode=0 timed_out=False elapsed=0.338s
+old: returncode=1 timed_out=False elapsed=0.329s
+new: returncode=0 timed_out=False elapsed=0.331s
 {
   "expectation": "old leaks FDs/fails; new stable/green with the same fixture",
   "new_passed": true,

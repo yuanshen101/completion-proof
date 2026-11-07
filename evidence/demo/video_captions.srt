@@ -1,6 +1,6 @@
 1
 00:00:00,000 --> 00:00:04,000
-Replay of captured real commands. Not live. Actual execution elapsed: 5.5s.
+Replay of captured real commands. Not live. Actual execution elapsed: 5.75s.
 
 2
 00:00:04,000 --> 00:00:06,400

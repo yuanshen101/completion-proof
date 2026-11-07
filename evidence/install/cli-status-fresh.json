@@ -4,22 +4,22 @@
       "check_id": "unit",
       "command": "<HOME>/.hermes/installs/7fcf1868c741f976/environments/9b65a72b860247ad9cefe76a713172ac/venv/bin/python3 -m unittest discover -s tests -v",
       "current_file_count": 2,
-      "current_fingerprint": "d2dbd736246fe5d57b3aa9a1fe8a50c5121715ea838f5af802955d8deb291e7e",
+      "current_fingerprint": "be7dbeece792800d24391d35bb1db4b410a7beab2e06a3ebb4d31ef5087e13a9",
       "description": "fixture unittest",
-      "duration_ms": 46,
+      "duration_ms": 51,
       "effective_cwd": "<REPO_ROOT>/.scratch<TMP>",
       "exit_code": 0,
       "fresh": true,
-      "input_fingerprint": "d2dbd736246fe5d57b3aa9a1fe8a50c5121715ea838f5af802955d8deb291e7e",
+      "input_fingerprint": "be7dbeece792800d24391d35bb1db4b410a7beab2e06a3ebb4d31ef5087e13a9",
       "reason": "",
       "receipt": {
         "artifact_globs": [],
         "check_digest": "510780e25083f54b9ef7b39967868439722a91e9c2e5f2402e8725dd9dda9a9e",
         "check_id": "unit",
-        "created_at": "2026-11-06T14:12:31.235Z",
+        "created_at": "2026-11-07T13:40:25.107Z",
         "duplicate_of": "",
-        "duration_ms": 46,
-        "engine_version": "0.1.4",
+        "duration_ms": 51,
+        "engine_version": "0.1.5",
         "exclude_globs": [
           ".git/**",
           ".venv/**",
@@ -49,7 +49,7 @@
           }
         ],
         "input_file_count": 2,
-        "input_fingerprint": "d2dbd736246fe5d57b3aa9a1fe8a50c5121715ea838f5af802955d8deb291e7e",
+        "input_fingerprint": "be7dbeece792800d24391d35bb1db4b410a7beab2e06a3ebb4d31ef5087e13a9",
         "metadata": {
           "argv": [
             "<HOME>/.hermes/installs/7fcf1868c741f976/environments/9b65a72b860247ad9cefe76a713172ac/venv/bin/python3",
@@ -75,7 +75,7 @@
         "output_truncated": false,
         "proves": "The configured command exited 0 before its timeout, and every file in the check's declared source, test and artifact scope had the recorded SHA-256 when the check was run.",
         "reason": "",
-        "receipt_id": "r-1c2ddfbafba04468bea4628e648f02cf",
+        "receipt_id": "r-25f2aab9895442feb1791c2cabe100f6",
         "schema_version": 2,
         "scope_summary": "2 files (108 bytes); source=['src/**/*.py']; tests=['tests/**/*.py']",
         "source_globs": [
@@ -90,15 +90,15 @@
           "tests/**/*.py"
         ],
         "timed_out": false,
-        "verification_id": "v-01eb2fb476a042818c7e7f9ddf7daf1b"
+        "verification_id": "v-a9fc48baa6e44423b5c0add0246412f2"
       },
       "scope_summary": "2 files (108 bytes); source=['src/**/*.py']; tests=['tests/**/*.py']",
       "status": "PASS",
-      "verified_at": "2026-11-06T14:12:31.235Z",
+      "verified_at": "2026-11-07T13:40:25.107Z",
       "workspace": "<REPO_ROOT>/.scratch<TMP>"
     }
   ],
-  "engine_version": "0.1.4",
+  "engine_version": "0.1.5",
   "schema_version": 2,
   "what_pass_does_not_prove": "A PASS does not prove that all software is correct, that every test was run, or that untested code works. It proves only that this configured command exited 0 on this declared scope. Evidence is local and not cryptographically tamper-proof: a process with the same OS permissions can edit the ledger.",
   "what_pass_proves": "The configured command exited 0 before its timeout, and every file in the check's declared source, test and artifact scope had the recorded SHA-256 when the check was run."
